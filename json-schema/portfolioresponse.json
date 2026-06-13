@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/PortfolioResponse",
+  "title": "Portfolio response",
+  "required": [
+    "account_restricted",
+    "actual_value",
+    "base_wallet_balance",
+    "carrot_held_value",
+    "cash",
+    "currency_code",
+    "currency_name",
+    "currency_symbol",
+    "dollar_balance",
+    "dollar_cash",
+    "naira_to_usd",
+    "pending_deposit",
+    "processing_gift_received",
+    "processing_gift_sent",
+    "processing_withdrawal",
+    "referral_cashback_blocked_value",
+    "reserved_cash",
+    "residence_country",
+    "total_cash",
+    "unsettled_cash",
+    "usd_to_naira",
+    "extended_hours_status",
+    "usd_to_user_currency",
+    "user_currency_symbol",
+    "user_currency_to_usd",
+    "value",
+    "value_change",
+    "value_percent_change",
+    "withdraw_details",
+    "withdrawal_cash"
+  ],
+  "type": "object",
+  "properties": {
+    "withdrawal_cash": {
+      "type": "integer",
+      "description": "Withdrawal cash",
+      "example": 0
+    },
+    "withdraw_details": {
+      "type": "array",
+      "description": "withdraw details",
+      "items": {
+        "title": "withdraw details response",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country required for mobile money details i.e only for GHA users",
+            "example": "Nigeria"
+          },
+          "name": {
+            "type": "string",
+            "description": "name required for mobile money details i.e only for GHA users",
+            "example": "John"
+          },
+          "network": {
+            "type": "string",
+            "description": "network required for mobile money details i.e only for GHA users"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "phone_number required for mobile money details i.e only for GHA users"
+          },
+          "user_id": {
+            "type": "integer",
+            "description": "user_id required for mobile money details i.e only for GHA users"
+          },
+          "bank_code": {
+            "type": "string",
+            "description": "bank_code for bank details i.e for NGA users"
+          },
+          "bank_fw_id": {
+            "type": "string",
+            "description": "bank_fw_id required for bank details i.e for NGA users"
+          },
+          "bank_name": {
+            "type": "string",
+            "description": "bank_name required for bank details i.e for NGA users",
+            "example": "Sterling Bank"
+          },
+          "account_number": {
+            "type": "string",
+            "description": "account_number required for bank details i.e for NGA users",
+            "example": "0211873910"
+          },
+          "beneficiary_name": {
+            "type": "string",
+            "description": "beneficiary_name for bank details i.e for NGA users",
+            "example": "John Doe"
+          }
+        }
+      }
+    },
+    "value_percent_change": {
+      "type": "integer",
+      "description": "Equity value percent change",
+      "example": 0
+    },
+    "value_change": {
+      "type": "integer",
+      "description": "Equity value change",
+      "example": 0
+    },
+    "value": {
+      "type": "integer",
+      "description": "Portfolio value cash + equity value",
+      "example": 0
+    },
+    "user_currency_to_usd": {
+      "type": "integer",
+      "description": "User currency to USD exchange rate",
+      "example": 0.001152073732718894
+    },
+    "user_currency_symbol": {
+      "type": "string",
+      "description": "User currency symbol based on residence country",
+      "example": "\u20a6"
+    },
+    "usd_to_user_currency": {
+      "type": "integer",
+      "description": "USD to user currency exchange rate",
+      "example": 868
+    },
+    "usd_to_naira": {
+      "type": "integer",
+      "description": "USD to Naira exchange rate",
+      "example": 868
+    },
+    "extended_hours_status": {
+      "type": "string",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "nullable": true,
+      "description": "Indicates the user's extended hours trading status.\n- `null`: Returned for existing users or when `extended_hours_opt_in` was not included during onboarding.\n- `ENABLED`: Returned when the user's brokerage account is successfully created or they later opt in via the extended_hours opt_in endpoint.\n- `DISABLED`: Returned when the user opts out via the extended_hours opt_in endpoint.\n"
+    },
+    "unsettled_cash": {
+      "type": "integer",
+      "description": "The amount of Unsettled cash a user has after stock sale",
+      "example": 0
+    },
+    "total_cash": {
+      "type": "integer",
+      "description": "Total cash",
+      "example": 0
+    },
+    "residence_country": {
+      "type": "string",
+      "description": "Residence country of user: GHA, NGA or KEN",
+      "example": "NGA"
+    },
+    "reserved_cash": {
+      "type": "integer",
+      "description": "Reserved cash (mostly unsettled cash)",
+      "example": 0
+    },
+    "referral_cashback_blocked_value": {
+      "type": "integer",
+      "description": "Non-withdrawal referral cashback until after 30 days",
+      "example": 0
+    },
+    "processing_withdrawal": {
+      "type": "integer",
+      "description": "Processing withdrawal money",
+      "example": 0
+    },
+    "processing_gift_sent": {
+      "type": "integer",
+      "description": "Processing gift sent",
+      "example": 0
+    },
+    "processing_gift_received": {
+      "type": "integer",
+      "description": "Processing gift received",
+      "example": 0
+    },
+    "pending_deposit": {
+      "type": "integer",
+      "description": "Pending deposit money",
+      "example": 0
+    },
+    "naira_to_usd": {
+      "type": "integer",
+      "description": "Naira to USD exchange rate",
+      "example": 0.001152073732718894
+    },
+    "dollar_cash": {
+      "type": "integer",
+      "description": "Cash available to invest aka buying power always in $",
+      "example": 0
+    },
+    "dollar_balance": {
+      "type": "integer",
+      "description": "dollar balance",
+      "example": 0
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Prices currency symbol",
+      "example": "\u20a6"
+    },
+    "currency_name": {
+      "type": "string",
+      "description": "Naira, Shilling or Cedi",
+      "example": "Nigerian Naira"
+    },
+    "currency_code": {
+      "type": "string",
+      "description": "NGN, KES or GHS",
+      "example": "NGN"
+    },
+    "cash": {
+      "type": "number",
+      "description": "Total cash in user's brokerage account. (Also the cash available for user to invest aka buying power)",
+      "example": 0
+    },
+    "carrot_held_value": {
+      "type": "number",
+      "description": "Carrot held value most likely for liquidation",
+      "example": 0
+    },
+    "base_wallet_balance": {
+      "type": "number",
+      "description": "Base wallet Balance",
+      "example": 0
+    },
+    "actual_value": {
+      "type": "number",
+      "description": "Total sum of a  user's portfolio. i.e, a sum of the amount of US Stocks they own, amount in unsettled cash and amount in their brokerage account",
+      "example": 0
+    },
+    "account_restricted": {
+      "type": "boolean",
+      "description": "Account restricted",
+      "example": false
+    }
+  }
+}

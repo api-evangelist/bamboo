@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/USDocuments",
+  "title": "URL to download a Single Document",
+  "required": [
+    "url"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "link",
+      "description": "Document URL",
+      "example": "https://dzb6emi8pracf.cloudfront.net/420d2907-bb49-421d-accd-9ad4692b0a51.1722266251918/Confirm_BBOO_001_BBMN000009_08302024.pdf?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vZHpiNmVtaThwcmFjZi5jbG91ZGZyb250Lm5ldC80MjBkMjkwNy1iYjQ5LTQyMWQtYWNjZC05YWQ0NjkyYjBhNTEuMTcyMjI2NjI1MTkxOC9Db25maXJtX0JCT09fMDAxX0JCTU4wMDAwMDlfMDgzMDIwMjQucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzI1NTI1Njg2fSwiSXBBZGRyZXNzIjp7IkFXUzpTb3VyY2VJcCI6IjAuMC4wLjAvMCJ9fX1dfQ__&Signature=WL-Cm2B8BMOvT0ZZf6lMbIUmq1m4jF6atbtsalkgFKOyXs08eaA5nPFnOJjlQBmhqdzva8uGsKdV11U2Mmbmk3UXMzU8-sKQSMlMZ-awknHGSGELJbA1aOlbscsxeznP~MZhVL73ouKuX6scyqqk8AXkiTXTwKfJSxVhPiR0EAcrvW0GkrheiydXiti87eed07t-Tl8BGd7Du83ClueJZxJTTMhNGhuYhpvB-G7yzzRUJWIXsVhofGlmC9mChD~2R6OoaruQ7UckxlHL~IobKzm0oZLiRESiqyuHfgGwIZrY~KGVNXFmgbYNIiFZObjDgbMlVWErM-80VYiRtL9Ctw__&Key-Pair-Id=APKAJP3MFGZ6DRA4CW4Q"
+    }
+  }
+}

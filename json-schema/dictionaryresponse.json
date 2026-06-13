@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/DictionaryResponse",
+  "title": "US Dictionary response",
+  "required": [
+    "assets_range",
+    "employment_status",
+    "employment_type",
+    "experience",
+    "goal",
+    "marital_status",
+    "position",
+    "risk_tolerance",
+    "source_of_wealth"
+  ],
+  "type": "object",
+  "properties": {
+    "assets_range": {
+      "type": "array",
+      "description": "Arary of object with assets ranges: $0-$24,999 etc.",
+      "example": [
+        {
+          "12500": "\u20a60-\u20a69,000,000"
+        },
+        {
+          "62500": "\u20a69,000,001-\u20a636,000,001"
+        },
+        {
+          "175000": "\u20a636,000,001-\u20a690,000,000"
+        },
+        {
+          "250000": "\u20a690,000,001+"
+        }
+      ]
+    },
+    "employment_status": {
+      "type": "object",
+      "properties": {},
+      "description": "Employment status: Employed, Self-Employed etc.",
+      "example": [
+        {
+          "EMPLOYED": "Employed",
+          "RETIRED": "Retired",
+          "SELF_EMPLOYED": "Self Employed/Business Owner",
+          "STUDENT": "Student",
+          "UNEMPLOYED": "Not employed"
+        }
+      ]
+    },
+    "employment_type": {
+      "type": "object",
+      "properties": {},
+      "description": "Employment type: Art, Food etc.",
+      "example": [
+        {
+          "AGRICULTURE": "Agriculture, Forestry, Fishing and Hunting",
+          "ART": "Arts, Entertainment, and Recreation",
+          "CONSTRUCTION": "Construction",
+          "EDUCATION": "Educational Services",
+          "FINANCE": "Finance and Insurance",
+          "FOOD": "Accommodation and Food Services",
+          "HEALTH": "Health Care and Social Assistance",
+          "INFORMATION": "Information",
+          "MANAGEMENT": "Management of Companies and Enterprises",
+          "MANUFACTURING": "Manufacturing",
+          "MINING": "Mining, Quarrying, and Oil and Gas Extraction",
+          "PROFESSIONAL": "Professional, Scientific, and Technical Services",
+          "PUBLIC": "Public Administration",
+          "REAL_ESTATE": "Real Estate and Rental and Leasing",
+          "RETAIL": "Retail Trade",
+          "TRANSPORT": "Transportation and Warehousing",
+          "UTILITIES": "Utilities",
+          "WASTE": "Administrative and Support and Waste Management and Remediation Services",
+          "WHOLESALE": "Wholesale Trade"
+        }
+      ]
+    },
+    "experience": {
+      "type": "array",
+      "description": "Arary of object with experience in investing: years ranges",
+      "example": [
+        {
+          "NONE": "None"
+        },
+        {
+          "YRS_1_2": "1-2 years"
+        },
+        {
+          "YRS_3_5": "3-5 years"
+        },
+        {
+          "YRS_5_10": "5-10 years"
+        },
+        {
+          "YRS_10_": "10+ years"
+        }
+      ]
+    },
+    "goal": {
+      "type": "object",
+      "properties": {},
+      "description": "Goal in investing: active, frequent etc.",
+      "example": [
+        {
+          "ACTIVE_DAILY": "Active trader, daily trader",
+          "FREQUENT": "Frequent trader, depending on the market",
+          "INFREQUENT": "Trading infrequently when I see an opportunity",
+          "LONG_TERM": "Long\u2013term buy & hold investing",
+          "NEW": "New to investing"
+        }
+      ]
+    },
+    "marital_status": {
+      "type": "object",
+      "properties": {},
+      "description": "marital status: Single, Divorced etc.",
+      "example": [
+        {
+          "DIVORCED": "Divorced",
+          "MARRIED": "Married",
+          "PARTNER": "Domestic Partner",
+          "SINGLE": "Single",
+          "WIDOWED": "Widowed"
+        }
+      ]
+    },
+    "position": {
+      "type": "object",
+      "properties": {},
+      "description": "Position in Company: agent, administrator etc.",
+      "example": [
+        {
+          "ARTIST": "Artist/Performer/Actor/Dancer",
+          "TRANSPORTER": "Transporter",
+          "APPRAISER": "Appraiser",
+          "PILOT": "Pilot",
+          "IMPEX": "Importer/Exporter",
+          "BROKER": "Broker",
+          "CLERGY": "Clergy",
+          "FISHERMAN": "Fisherman",
+          "BUSINESS_EXEC": "Business Executive (VP, Director, etc.)",
+          "CONSULTANT": "Consultant",
+          "ASSISTANT": "Assistant",
+          "BARBER": "Barber/Beautician/Hairstylist",
+          "SCIENTIST": "Scientist",
+          "JANITOR": "Janitor",
+          "ANALYST": "Analyst",
+          "MECHANIC": "Mechanic",
+          "MORTICIAN": "Mortician/Funeral Director",
+          "FINANCIAL": "Financial Planner",
+          "SECURITY": "Security Guard",
+          "AMBASSADOR": "Ambassador/Consulate Professional",
+          "LABORER": "Laborer",
+          "CIVIL": "Civil Servant",
+          "CLERK": "Clerk",
+          "JEWELER": "Jeweler",
+          "INSPECTOR": "Inspector/Investigator",
+          "ENGINEER": "Engineer",
+          "NURSE": "Nurse",
+          "DOCTOR": "Doctor/Dentist/Veterinarian/Surgeon",
+          "CHIROPRACTOR": "Chiropractor",
+          "POLICE": "Police Officer/Firefighter/Law Enforcement Professional",
+          "DEVELOPER": "Developer",
+          "TEACHER": "Teacher/Professor",
+          "EXAMINER": "Examiner",
+          "TRAINER": "Trainer/Instructor",
+          "TELLER": "Teller",
+          "PM": "Project Manager",
+          "COMPLIANCE": "Compliance/Regulatory Professional",
+          "PHYSICAL": "Physical Therapist",
+          "CONTRACTOR": "Contractor",
+          "INVESTMENT": "Investment Advisor/Investment Manager",
+          "AUDITOR": "Auditor",
+          "RESEARCHER": "Researcher",
+          "TRADESPERSON": "Tradesperson/Craftsperson",
+          "SOCIAL": "Social Worker",
+          "DEALER": "Dealer",
+          "EXTERMINATOR": "Exterminator",
+          "OFFICE": "Office Associate",
+          "MANAGER": "Manager",
+          "LANDSCAPER": "Landscaper",
+          "ACTUARY": "Actuary",
+          "FLIGHT": "Flight Attendant",
+          "FARMER": "Farmer/Rancher",
+          "AUCTIONEER": "Auctioneer",
+          "ATHLETE": "Athlete",
+          "ADMINISTRATOR": "Administrator",
+          "HR": "Human Resources Professional",
+          "NUTRITIONIST": "Nutritionist",
+          "ACCOUNTANT": "Accountant/CPA/Bookkeeper/Controller",
+          "DISTRIBUTOR": "Distributor",
+          "INTERN": "Intern",
+          "LENDING": "Lending Professional",
+          "CASHIER": "Cashier",
+          "AGENT": "Agent",
+          "CAREGIVER": "Caregiver",
+          "SEAMSTRESS": "Seamstress/Tailor",
+          "WRITER": "Writer/Journalist/Editor",
+          "REP": "Registered Rep",
+          "MILITARY": "Military, Officer or Associated",
+          "COUNSELOR": "Counselor/Therapist",
+          "SALES": "Salesperson",
+          "DRIVER": "Driver",
+          "PHARMACIST": "Pharmacist",
+          "BUSINESS_OWNER": "Business Owner",
+          "INVESTOR": "Investor",
+          "FACTORY": "Factory/Warehouse Worker",
+          "TECHNICIAN": "Technician",
+          "POLITICIAN": "Politician",
+          "ATC": "Air Traffic Controller",
+          "ATTENDANT": "Attendant",
+          "CARPENTER": "Carpenter/Construction Worker",
+          "ADVERTISER": "Advertiser/Marketer/PR Professional",
+          "ARCHITECT": "Architect/Designer",
+          "CUSTOMER_SERVICE": "Customer Service Representative",
+          "IT": "IT Professional/IT Associate",
+          "ATTORNEY": "Attorney/Judge/Legal Professional",
+          "ADJUSTER": "Adjuster",
+          "UNDERWRITER": "Underwriter",
+          "CHEF": "Chef/Cook",
+          "SAILOR": "Sailor/Seaman"
+        }
+      ]
+    },
+    "risk_tolerance": {
+      "type": "array",
+      "description": "Arary of object with risk tolerance: low, hight etc.",
+      "example": [
+        {
+          "LOW": "Low Risk"
+        },
+        {
+          "MODERATE": "Moderate Risk"
+        },
+        {
+          "SPECULATION": "Speculative Risk"
+        },
+        {
+          "HIGH": "High Risk"
+        }
+      ]
+    },
+    "source_of_wealth": {
+      "type": "array",
+      "description": "Arary of object with risk tolerance: low, hight etc.",
+      "example": [
+        {
+          "COMPANY": "Company sale",
+          "GIFT": "Gift",
+          "INHERITANCE": "Inheritance",
+          "INVESTMENTS": "Sales of shares or other investments/liquidation of an investment portfolio",
+          "LOAN": "Loan",
+          "PROPERTY": "Sale of property",
+          "SAVINGS": "Savings from salary"
+        }
+      ]
+    }
+  },
+  "description": "GET response with key-values"
+}

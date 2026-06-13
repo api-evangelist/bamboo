@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/ExchangeRatesResponse",
+  "title": "Exchange rates response",
+  "required": [
+    "exchange_rates"
+  ],
+  "type": "object",
+  "properties": {
+    "exchange_rates": {
+      "type": "array",
+      "description": "list of exchange rates",
+      "items": {
+        "title": "Exchange rate response",
+        "required": [
+          "exchange_rate"
+        ],
+        "type": "object",
+        "properties": {
+          "buy_rate": {
+            "type": "number",
+            "description": "Buy rate for requested currency",
+            "example": 805
+          },
+          "currency": {
+            "type": "string",
+            "description": "The requested currency",
+            "example": "NGN"
+          },
+          "currency_symbol": {
+            "type": "number",
+            "description": "Symbol of requested currency",
+            "example": "\u20a6"
+          },
+          "flag_image": {
+            "type": "string",
+            "description": "Flag_image"
+          },
+          "id": {
+            "type": "number",
+            "description": "ID for requested currency",
+            "example": 2
+          },
+          "residence_country": {
+            "type": "string",
+            "description": "Country for requested currency",
+            "example": "NGA"
+          },
+          "sell_rate": {
+            "type": "number",
+            "description": "Buy rate for requested currency",
+            "example": 868
+          }
+        }
+      }
+    }
+  }
+}

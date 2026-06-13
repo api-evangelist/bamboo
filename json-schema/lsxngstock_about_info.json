@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngstock_about_info",
+  "title": "Stock About Info",
+  "type": "object",
+  "properties": {
+    "avatar": {
+      "type": "string",
+      "description": "Theme avatar",
+      "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d"
+    },
+    "close_price": {
+      "type": "integer",
+      "description": "close_price",
+      "example": 33.4
+    },
+    "description": {
+      "type": "string",
+      "description": "Stock name",
+      "example": "ZENITHBANK"
+    },
+    "favourite": {
+      "type": "string",
+      "description": "Stock favourite",
+      "example": false
+    },
+    "logo": {
+      "type": "string",
+      "description": "Stock logo URL"
+    },
+    "market_cap": {
+      "type": "integer",
+      "description": "market_cap",
+      "example": 0
+    },
+    "market_price": {
+      "type": "integer",
+      "description": "market_price",
+      "example": 33.4
+    },
+    "name": {
+      "type": "string",
+      "description": "Stock name",
+      "example": "ZENITH BANK"
+    },
+    "open_price": {
+      "type": "integer",
+      "description": "open_price",
+      "example": 33.4
+    },
+    "percent_change": {
+      "type": "number",
+      "description": "Total percentage change",
+      "example": 0
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol",
+      "example": "ZENITHBANK"
+    },
+    "value_change": {
+      "type": "integer",
+      "description": "Equity value change",
+      "example": 0
+    },
+    "volume": {
+      "type": "number",
+      "description": "volume",
+      "example": 0
+    }
+  }
+}

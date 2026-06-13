@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/OrderStatusResponse",
+  "title": "Order status response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Order ID",
+      "example": "KJ.836a28cc-46ad-45d8-af25-a48812a9b7ae"
+    },
+    "name": {
+      "type": "string",
+      "description": "Stock name",
+      "example": "2U, Inc."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type: Market, Stop, Limit",
+      "example": "Market"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Symbol",
+      "example": "TWOU"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Stock logo",
+      "example": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/twou.png"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity requested",
+      "example": 9.70873786
+    },
+    "side": {
+      "type": "string",
+      "description": "Side Buy/Sell",
+      "example": "BUY"
+    },
+    "dollar_fee": {
+      "type": "float",
+      "description": "dollar fee",
+      "example": 1
+    },
+    "price": {
+      "type": "number",
+      "description": "Price",
+      "example": 2.06
+    },
+    "avatar": {
+      "type": "string",
+      "description": "Stock avatar url",
+      "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fstocks%2Fimage.png1668765461965?alt=media&token=6467a544-ddd2-4b0d-8e5a-4c4ef4d70510"
+    },
+    "naira_fee": {
+      "type": "float",
+      "description": "naira fee",
+      "example": 868.8
+    },
+    "background_color": {
+      "type": "string",
+      "description": "Background color of stock in hex",
+      "example": "121212"
+    },
+    "order_status": {
+      "type": "string",
+      "description": "Order status",
+      "example": "Filled"
+    },
+    "dollar_price": {
+      "type": "float",
+      "description": "dollar price",
+      "example": 20
+    },
+    "naira_price": {
+      "type": "float",
+      "description": "naira price",
+      "example": 17360
+    },
+    "limit_price": {
+      "type": "number",
+      "description": "Limit price",
+      "example": 0
+    },
+    "stop_price": {
+      "type": "number",
+      "description": "Stop price",
+      "example": 0
+    },
+    "commision": {
+      "type": "float",
+      "description": "Orderd commision",
+      "example": 1
+    },
+    "created_when": {
+      "type": "string",
+      "description": "Date in ISO 8601",
+      "example": "2023-10-25T15:28:26.779Z"
+    },
+    "update_reason": {
+      "type": "string",
+      "description": "Update reason if order was Rejected",
+      "example": "market_order-buy-filled"
+    }
+  }
+}

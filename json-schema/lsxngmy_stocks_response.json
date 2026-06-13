@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngmy_stocks_response",
+  "title": "Array of users NGX stocks",
+  "type": "object",
+  "properties": {
+    "total_user_equity": {
+      "type": "number",
+      "description": "total_user_equity",
+      "example": 0
+    },
+    "stocks": {
+      "type": "array",
+      "description": "List of Stock",
+      "items": {
+        "title": "Stock response",
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string",
+            "description": "Theme avatar",
+            "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d"
+          },
+          "average_cost": {
+            "type": "integer",
+            "description": "average_cost",
+            "example": 0
+          },
+          "cost_basis": {
+            "type": "integer",
+            "description": "cost_basis",
+            "example": 0
+          },
+          "favourite": {
+            "type": "string",
+            "description": "Stock favourite",
+            "example": false
+          },
+          "logo": {
+            "type": "string",
+            "description": "Stock logo URL"
+          },
+          "market_cap": {
+            "type": "integer",
+            "description": "market_cap",
+            "example": 0
+          },
+          "market_price": {
+            "type": "integer",
+            "description": "market_price",
+            "example": 33.4
+          },
+          "name": {
+            "type": "string",
+            "description": "Stock name",
+            "example": "ZENITH BANK"
+          },
+          "percent_change": {
+            "type": "number",
+            "description": "Total percentage change",
+            "example": 0
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity",
+            "default": 10
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol",
+            "example": "ZENITHBANK"
+          },
+          "total_percent_change": {
+            "type": "number",
+            "description": "Total portfolio change",
+            "example": 0
+          },
+          "total_return": {
+            "type": "number",
+            "description": "Total return",
+            "example": 0
+          },
+          "value_change": {
+            "type": "integer",
+            "description": "Equity value change",
+            "example": 0
+          },
+          "volume": {
+            "type": "number",
+            "description": "volume",
+            "example": 0
+          }
+        }
+      }
+    }
+  }
+}

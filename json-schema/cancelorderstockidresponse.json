@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/CancelOrderStockIdResponse",
+  "title": "Order Cancelled",
+  "type": "string",
+  "example": "KJ.836a28cc-46ad-45d8-af25-a48812a9b7ae"
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/ThemesListingResponse",
+  "title": "List of all themes",
+  "type": "object",
+  "properties": {
+    "themes": {
+      "type": "array",
+      "description": "Themes listing response",
+      "items": {
+        "title": "Themes listing response",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Theme name",
+            "example": "Most Popularr"
+          },
+          "id": {
+            "type": "number",
+            "description": "Theme ID",
+            "example": 45
+          },
+          "hex_color": {
+            "type": "string",
+            "description": "Theme hex_color",
+            "example": "D5F59A"
+          },
+          "description": {
+            "type": "string",
+            "description": "Theme description",
+            "example": "The most-owned stocks in the Bamboo community."
+          },
+          "color": {
+            "type": "string",
+            "description": "Theme color",
+            "example": "Blue"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "Theme avatar",
+            "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d"
+          }
+        },
+        "description": "Theme basic response details"
+      }
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Theme currency symbol",
+      "example": "$"
+    }
+  },
+  "description": "List of all active stocks"
+}

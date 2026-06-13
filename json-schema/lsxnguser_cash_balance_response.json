@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxnguser_cash_balance_response",
+  "title": "User's Cash Balance",
+  "required": [
+    "withdrawal_cash"
+  ],
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "Currency",
+      "example": "NGN"
+    },
+    "balance": {
+      "type": "number",
+      "description": "User current cash balance in provided currency",
+      "example": 5661255.97
+    }
+  }
+}

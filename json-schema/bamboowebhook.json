@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/bamboowebhook",
+  "title": "Deposit request for Banking Institutions",
+  "required": [
+    "amount_paid",
+    "currency",
+    "provider",
+    "reference",
+    "phone_number",
+    "transaction_date"
+  ],
+  "type": "object",
+  "properties": {
+    "amount_paid": {
+      "type": "number",
+      "description": "Amount to be deposited",
+      "example": 5000
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency",
+      "example": "NGN"
+    },
+    "provider": {
+      "type": "string",
+      "description": "API Consumer Name",
+      "example": "invest-bamboo"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Deposit reference",
+      "example": "INVcal2VzeVGJkCXNx"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "User phone number",
+      "example": "+2348036477166"
+    },
+    "transaction_date": {
+      "type": "string",
+      "description": "Date of creating the transaction",
+      "example": "2022-02-02"
+    },
+    "market": {
+      "type": "string",
+      "description": "Either \"US\" or \"NGX\". It's used to specify desired stock market. If no market is specified, it defaults to US.",
+      "example": "US"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/OrderStockRequest",
+  "title": "Order Placement Parameters",
+  "required": [
+    "fee",
+    "order_type"
+  ],
+  "type": "object",
+  "properties": {
+    "fee": {
+      "type": "number",
+      "description": "Fee from calculate order response for all order types",
+      "default": 150
+    },
+    "order_type": {
+      "type": "string",
+      "description": "Order type options: `MARKET`, `STOP`, `LIMIT`",
+      "default": "MARKET"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Order quantity or number of shares. NB: Fractional shares not allowed for LIMT and STOP Orders.",
+      "default": 38.22748653
+    },
+    "total_price": {
+      "type": "number",
+      "description": "Order price returned from the calculate order response",
+      "default": 9850
+    },
+    "price": {
+      "type": "number",
+      "description": "Price per share from the calculate order response. Used for only LIMIT and STOP Orders",
+      "default": 257.668
+    },
+    "price_per_share": {
+      "type": "number",
+      "description": "Price per share from the calculate order response",
+      "default": 257.668
+    },
+    "side": {
+      "type": "string",
+      "description": "Order side options: `BUY` or `SELL`",
+      "default": "BUY"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock ticker symbol",
+      "default": "AAPL"
+    },
+    "sell_all": {
+      "type": "boolean",
+      "description": "set to true if the user is trying to sell_all the shares they have for that particular stock.",
+      "example": false
+    },
+    "expiration": {
+      "type": "string",
+      "description": "Used to set expiration date for `LIMIT` or `STOP` orders",
+      "default": "90 Days if no date is set",
+      "example": "2025-06-13"
+    },
+    "extended_hours_order": {
+      "type": "boolean",
+      "description": "Set to true if the user wants their trade executed during extended hours. This only supports LIMIT orders and whole unit trading during extended hours.",
+      "example": false
+    }
+  }
+}

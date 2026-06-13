@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/CalculatedOrderResponse",
+  "title": "Calculated order response",
+  "required": [
+    "fee",
+    "order_price",
+    "total_price",
+    "blocked_quantity",
+    "quantity",
+    "currency_symbol",
+    "gfv_occurs",
+    "number_of_violations",
+    "price_per_share"
+  ],
+  "type": "object",
+  "properties": {
+    "quantity": {
+      "type": "number",
+      "description": "Calculated quantity",
+      "example": 38.22748653
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Currency symbol based on currency passed in header",
+      "example": "$"
+    },
+    "price_per_share": {
+      "type": "number",
+      "description": "Price Per Share for all order",
+      "format": "float",
+      "example": 257.668
+    },
+    "fee": {
+      "type": "integer",
+      "description": "calculated fees",
+      "example": 150
+    },
+    "order_price": {
+      "type": "number",
+      "description": "calculated order price",
+      "example": 9850
+    },
+    "number_of_violations": {
+      "type": "integer",
+      "description": "Number of violations",
+      "example": 0
+    },
+    "blocked_quantity": {
+      "type": "number",
+      "description": "Blocked quantity for position"
+    },
+    "gfv_occurs": {
+      "type": "boolean",
+      "description": "GFV occurs",
+      "example": false
+    },
+    "total_price": {
+      "type": "number",
+      "description": "calculated total price",
+      "example": 10000
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/UserStockOwnership",
+  "title": "User Stock Ownership",
+  "type": "object",
+  "description": "Details of User Stock Ownership",
+  "properties": {
+    "currency_symbol": {
+      "type": "string",
+      "description": "Currency Symbol",
+      "example": "$"
+    },
+    "equity_value": {
+      "type": "number",
+      "description": "Equity value",
+      "example": 2267.91
+    },
+    "stocks": {
+      "type": "object",
+      "description": "Click to see sample details of user stock list below",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "High",
+          "example": "Apple, Inc."
+        },
+        "symbol": {
+          "type": "string",
+          "description": "Stock symbol",
+          "example": "AAPL"
+        },
+        "logo": {
+          "type": "string",
+          "description": "Stock logo with a background colour",
+          "example": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "price",
+          "default": 3.769942
+        },
+        "price": {
+          "type": "number",
+          "description": "price",
+          "default": 257.85
+        },
+        "avatar": {
+          "type": "string",
+          "description": "Avatar"
+        },
+        "total_return": {
+          "type": "number",
+          "description": "Total return",
+          "example": 226.94
+        },
+        "total_percent_change": {
+          "type": "number",
+          "description": "Total percentage change",
+          "example": 34.45
+        },
+        "background_color": {
+          "type": "string",
+          "description": "Stock background color",
+          "example": "ff9201"
+        },
+        "value_change": {
+          "type": "number",
+          "description": "Price change",
+          "example": 16.51
+        },
+        "cost_basis": {
+          "type": "string",
+          "description": "Current market price",
+          "example": 658.69
+        },
+        "market_price": {
+          "type": "string",
+          "description": "Current market price",
+          "example": 257.9
+        },
+        "percent_change": {
+          "type": "number",
+          "description": "Total percentage change",
+          "example": 34.45
+        },
+        "user_equity": {
+          "type": "string",
+          "description": "User Equity",
+          "example": 855.14527384
+        },
+        "market_cap": {
+          "type": "integer",
+          "description": "market_cap",
+          "example": 2081325483000
+        },
+        "pe_ratio": {
+          "type": "integer",
+          "description": "market_cap",
+          "example": 2081325483000
+        },
+        "div_yield": {
+          "type": "integer",
+          "description": "Dividend yield",
+          "example": null
+        },
+        "eps": {
+          "type": "integer",
+          "description": "eps",
+          "example": 2.08
+        },
+        "volume": {
+          "type": "integer",
+          "description": "Volume",
+          "example": 208132548
+        },
+        "favourite": {
+          "type": "string",
+          "description": "Favourite",
+          "example": false
+        }
+      }
+    }
+  }
+}

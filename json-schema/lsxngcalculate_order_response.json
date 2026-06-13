@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngcalculate_order_response",
+  "title": "Calculated order response",
+  "required": [
+    "currency",
+    "currency_symbol",
+    "fee",
+    "order_price",
+    "price_per_share",
+    "quantity",
+    "side",
+    "symbol",
+    "total_price",
+    "type"
+  ],
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "Currency based on currency passed in header",
+      "example": "NGN"
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Currency symbol based on currency passed in header",
+      "example": "\u20a6"
+    },
+    "fee": {
+      "type": "integer",
+      "description": "calculated fees",
+      "example": 33.15
+    },
+    "order_price": {
+      "type": "number",
+      "description": "calculated order price",
+      "example": 331.5
+    },
+    "price_per_share": {
+      "type": "number",
+      "description": "Stock price per share",
+      "example": 33.15
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Calculated quantity",
+      "example": 10
+    },
+    "side": {
+      "type": "string",
+      "description": "Market side, BUY or SELL",
+      "example": "BUY"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol",
+      "example": "ZENITHBANK"
+    },
+    "total_price": {
+      "type": "number",
+      "description": "calculated total price",
+      "example": 364.65
+    },
+    "type": {
+      "type": "boolean",
+      "description": "Trade type, MARKET, LIMIT or STOP",
+      "example": null
+    }
+  }
+}

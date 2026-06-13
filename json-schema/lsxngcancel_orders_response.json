@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngcancel_orders_response",
+  "title": "Cancel an Order on the NGX",
+  "required": [
+    "message"
+  ],
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "sting",
+      "description": "Order cancellation message",
+      "example": "Order Cancelled"
+    }
+  }
+}

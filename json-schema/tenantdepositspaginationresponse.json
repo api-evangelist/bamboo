@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/TenantDepositsPaginationResponse",
+  "title": "List of all deposits with pagination",
+  "type": "object",
+  "properties": {
+    "next_token": {
+      "type": "integer",
+      "description": "Next token for pagination",
+      "example": 10
+    },
+    "deposits": {
+      "type": "array",
+      "description": "Deposit response",
+      "items": {
+        "title": "Deposit response",
+        "type": "object",
+        "properties": {
+          "user_surname": {
+            "type": "string",
+            "description": "User surname",
+            "example": "Doe"
+          },
+          "user_name": {
+            "type": "string",
+            "description": "User name",
+            "example": "John"
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "transaction id for the deposit",
+            "example": "INVcal2V2eVGJkCXNx"
+          },
+          "status": {
+            "type": "string",
+            "description": "Deposit status",
+            "example": "pending"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "User's phone number",
+            "example": "+2348033741268"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Deposit id",
+            "example": 5804
+          },
+          "email": {
+            "type": "string",
+            "description": "User email",
+            "example": "johndoe@gmail.com"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Creation date in unix timestamp UTC",
+            "example": "1759689482"
+          },
+          "api_consumer_name": {
+            "type": "string",
+            "description": "api consumer name",
+            "example": "invest-bamboo"
+          },
+          "amount": {
+            "type": "string",
+            "description": "amount",
+            "example": 5000
+          }
+        },
+        "description": "Deposit parameters"
+      }
+    }
+  },
+  "description": "List of deposits and next_token"
+}

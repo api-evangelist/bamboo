@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngpending_order_response",
+  "title": "NGX Pending Order Response",
+  "type": "object",
+  "properties": {
+    "pending_orders": {
+      "type": "array",
+      "description": "List of pending orders",
+      "items": {
+        "title": "List of pending orders",
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string",
+            "description": "Theme avatar",
+            "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d"
+          },
+          "broker_code": {
+            "type": "string",
+            "description": "broker_code",
+            "example": "LABB"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Creation date in unix timestamp UTC",
+            "example": "2022-02-02 01:10:20 UTC"
+          },
+          "dollar_fee": {
+            "type": "number",
+            "description": "Dollar Fee",
+            "example": 0.42
+          },
+          "dollar_price": {
+            "type": "number",
+            "description": "Dollar equivalent of price for order",
+            "example": 0.42
+          },
+          "id": {
+            "type": "string",
+            "description": "Order ID",
+            "example": "BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2"
+          },
+          "logo": {
+            "type": "string",
+            "description": "Stock logo URL"
+          },
+          "naira_fee": {
+            "type": "float",
+            "description": "Naira fee",
+            "example": 33.15
+          },
+          "naira_price": {
+            "type": "number",
+            "description": "Naira price for order",
+            "example": 364.65
+          },
+          "order_value": {
+            "type": "string",
+            "description": "Total price debited from the user including fee",
+            "example": 1.01
+          },
+          "price": {
+            "type": "number",
+            "description": "Price for order",
+            "default": 8
+          },
+          "price_per_share": {
+            "type": "number",
+            "description": "Price per share for all order",
+            "default": 8.27
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity requested",
+            "example": 10
+          },
+          "side": {
+            "type": "string",
+            "description": "Side; BUY or SELL",
+            "example": "BUY"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "example": "Successful"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol to `BUY` or `SELL`",
+            "default": "DDD"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type: MARKET, STOP, LIMIT",
+            "example": "MARKET"
+          }
+        }
+      }
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Currency Symbol",
+      "example": "\u20a6"
+    }
+  }
+}

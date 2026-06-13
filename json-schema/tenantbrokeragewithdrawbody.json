@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/TenantBrokerageWithdrawBody",
+  "title": "Tenant Brokerage Request body for NGN",
+  "required": [
+    "reference",
+    "amount",
+    "currency"
+  ],
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "currency",
+      "example": "NGN"
+    },
+    "amount": {
+      "type": "integer",
+      "description": "amount",
+      "example": 13400
+    },
+    "reference": {
+      "type": "string",
+      "description": "reference",
+      "example": "INVKPxiJVc40BNaQBH"
+    },
+    "market": {
+      "type": "string",
+      "description": "Either \"US\" or \"NGX\". It is used to specify desired stock market. If no market is specified, it defaults to US.",
+      "example": "US"
+    }
+  }
+}

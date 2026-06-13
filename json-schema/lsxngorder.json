@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngorder",
+  "title": "NGX place order request",
+  "required": [
+    "fee",
+    "order_type",
+    "order_value",
+    "price",
+    "price_per_share",
+    "quantity",
+    "side",
+    "source_wallet_id",
+    "symbol",
+    "total_price"
+  ],
+  "type": "object",
+  "properties": {
+    "fee": {
+      "type": "number",
+      "description": "Fee from calculate order response",
+      "example": 0.01
+    },
+    "order_type": {
+      "type": "string",
+      "description": "Order type options: `MARKET` only for NG Market.",
+      "default": "MARKET"
+    },
+    "order_value": {
+      "type": "string",
+      "description": "Total price debited from the user including fee",
+      "example": 1.01
+    },
+    "price": {
+      "type": "number",
+      "description": "Price for order",
+      "default": 8
+    },
+    "price_per_share": {
+      "type": "number",
+      "description": "Price per share for all order",
+      "default": 8.27
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Order quantity in share amounts for all order types.",
+      "default": 1.941176
+    },
+    "side": {
+      "type": "string",
+      "description": "Order side options: `BUY` or `SELL`",
+      "default": "BUY"
+    },
+    "source_wallet_id": {
+      "type": "integer",
+      "description": "source_wallet_id",
+      "example": 0
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol to `BUY` or `SELL`",
+      "default": "DDD"
+    },
+    "total_price": {
+      "type": "number",
+      "description": "Total invested price, without fee",
+      "default": 1
+    }
+  }
+}

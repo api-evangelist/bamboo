@@ -1,0 +1,446 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bamboo": "https://docs.investbamboo.com/vocab#",
+    "api": "https://api.investbamboo.com/",
+    "openapi": "https://spec.openapis.org/oas/v3.0/",
+    "WebAPI": "schema:WebAPI",
+    "EntryPoint": "schema:EntryPoint",
+    "Action": "schema:Action",
+    "BrokerageAccount": "bamboo:BrokerageAccount",
+    "InvestmentProfile": "bamboo:InvestmentProfile",
+    "Portfolio": "bamboo:Portfolio",
+    "Deposit": "bamboo:Deposit",
+    "Withdrawal": "bamboo:Withdrawal",
+    "StockOrder": "bamboo:StockOrder",
+    "StockPortfolio": "bamboo:StockPortfolio",
+    "ExchangeRate": "bamboo:ExchangeRate",
+    "Authentication": "bamboo:Authentication",
+    "FractionalShare": "bamboo:FractionalShare",
+    "NGSecurities": "bamboo:NGSecurities",
+    "USSecurities": "bamboo:USSecurities"
+  },
+  "@type": "WebAPI",
+  "@id": "https://docs.investbamboo.com/",
+  "name": "Bamboo Investment API",
+  "description": "REST API providing access to investment profiles, brokerage account management, portfolio tracking, stock search, money movement (deposits and withdrawals), and fractional stock trading on US and Nigerian capital markets.",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://investbamboo.com/",
+    "name": "Bamboo Invest",
+    "url": "https://investbamboo.com/"
+  },
+  "documentation": "https://docs.investbamboo.com/",
+  "termsOfService": "https://faq.investbamboo.com/en/collections/1988034-fees",
+  "version": "",
+  "entryPoints": [
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/oauth/token",
+      "httpMethod": "POST",
+      "name": "Generate Access Token",
+      "description": "This endpoint generates your access token, referred to as your `x-client-token` within Bamboo\u2019s system. \nThe credentials needed to generate it will be provided by the Bamboo Team during account setup.",
+      "applicationCategory": "Authentication"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/v2/one_step_registration",
+      "httpMethod": "POST",
+      "name": "Create New User",
+      "description": "This endpoint combines all the registration steps into a single API endpoint. To use this endpoint, you have to provide all \nfields in the defined payload, and also ensure that the user\u2019s ID has been "
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/one_step_registration",
+      "httpMethod": "POST",
+      "name": "Create New User",
+      "description": "This single endpoint helps you create brokerage accounts for your users. The required data below are used to determine user trading eligibility and are **required by US regulations**:\n- **basic_info:*",
+      "applicationCategory": "Account Management"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/dictionary",
+      "httpMethod": "GET",
+      "name": "Dictionary",
+      "description": "Returns acceptable values for account creation fields, ensuring data validation and compliance with brokerage requirements.\n\n**Categories:**\n- Employment Information \u2013 Status, type, industry, position",
+      "applicationCategory": "Account Management"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/brokerage_accounts",
+      "httpMethod": "POST",
+      "name": "Market Activation for Existing Users",
+      "description": "In a situation where a user is interested in a market that was not originally activated during their original account \ncreation, this endpoint is used to activate the desired market for that existing "
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/profile",
+      "httpMethod": "GET",
+      "name": "View User Profile",
+      "description": "Retrieve comprehensive user profile information including account restrictions statuses.\n",
+      "applicationCategory": "Account Management"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/investment_profile",
+      "httpMethod": "GET",
+      "name": "View User Investment Profile",
+      "description": "Access detailed investment profile information and brokerage account details.\n",
+      "applicationCategory": "Account Management"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/bamboo/webhook",
+      "httpMethod": "POST",
+      "name": "Create Deposit",
+      "description": "To make a deposit, you send a notification request with the necessary details to credit the user's brokerage account. Upon receiving the request, a record is created in our system and verification che",
+      "applicationCategory": "Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit",
+      "httpMethod": "GET",
+      "name": "Fetch All Deposits",
+      "description": "Paginated list of all user deposits with date range filtering and status information\n",
+      "applicationCategory": "Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit/{id}",
+      "httpMethod": "GET",
+      "name": "Fetch User-Specific Deposits",
+      "description": "Individual user deposits for performance tracking",
+      "applicationCategory": "Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit/status/{txref}",
+      "httpMethod": "GET",
+      "name": "Deposit Status Check",
+      "description": "Real-time status updates for specific deposit transactions",
+      "applicationCategory": "Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant_brokerage_withdraw",
+      "httpMethod": "POST",
+      "name": "Create Withdrawal",
+      "description": "Withdrawal requests follow a similar verification flow as deposits. You send a notification request with the necessary details to debit the user's brokerage account, we verify that the user has the am",
+      "applicationCategory": "Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/withdraws",
+      "httpMethod": "GET",
+      "name": "Fetch All Withdrawals",
+      "description": "Complete withdrawal history with date filtering\n",
+      "applicationCategory": "Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/withdraw/{id}",
+      "httpMethod": "GET",
+      "name": "Fetch User Withdrawals",
+      "description": "Individual user withdrawal history for performance tracking\n",
+      "applicationCategory": "Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/withdraw/status/{reference}",
+      "httpMethod": "GET",
+      "name": "Withdrawal Status Check",
+      "description": "Real-time status checking for specific withdrawal transactions\n",
+      "applicationCategory": "Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/themes",
+      "httpMethod": "GET",
+      "name": "Fetch List of Themes",
+      "description": "This is the endpoint to fetch the list of all Themed categories within our system.",
+      "applicationCategory": "Featured Themes"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/themed_stock/{theme_id}",
+      "httpMethod": "GET",
+      "name": "View Theme Details",
+      "description": "This endpoint is used to fetch an existing theme by its unique theme id.",
+      "applicationCategory": "Featured Themes"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/exchange_rate",
+      "httpMethod": "GET",
+      "name": "Fetch Exchange Rate",
+      "description": "Real-time exchange rate data enables accurate currency conversions for deposit, withdrawals and trade transactions.\n\nExchange rate data provides buy rates for converting USD to local currency when dis",
+      "applicationCategory": "Exchange Rate"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/market/open_date",
+      "httpMethod": "GET",
+      "name": "US Market Activity Status",
+      "description": "This endpoint indicates whether the US market is open/close. Orders placed when market is closed are queued for the next trading session.\n\nMarket status information includes a boolean indicator for wh",
+      "applicationCategory": "Market Activity"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/extended_hours/opt_in",
+      "httpMethod": "POST",
+      "name": "Enable or Disable Extended Hours Trading",
+      "description": "This enables you to give your users the option to enable or disable extended hours trading for their accounts.\n\n**NB:** This endpoint cannot be called for accounts that are pending brokerage account c",
+      "applicationCategory": "Market Activity"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/document_list",
+      "httpMethod": "GET",
+      "name": "Fetch List of All Documents",
+      "description": "Document retrieval begins with obtaining available document lists filtered by document type for efficient access to specific document categories.\n\n**Document Type Parameters:**\n- confirms: Trade confi",
+      "applicationCategory": "Financial Documents"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/document",
+      "httpMethod": "GET",
+      "name": "Fetch a Single Document",
+      "description": "This endpoint is used to access individual document download URLs using unique file key identifiers gotten from the `document_list` endpoint.\n\nSecurity features include expiring URLs where download li",
+      "applicationCategory": "Financial Documents"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/portfolio",
+      "httpMethod": "GET",
+      "name": "Fetch User Portfolio",
+      "description": "This endpoint returns summarized information about a user's total portfolio value, gains and losses, cash positions, and pending deposits and withdrawals with regards to the US market.\n##### The portf",
+      "applicationCategory": "Portfolio Reporting"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/portfolio/breakdown",
+      "httpMethod": "GET",
+      "name": "Fetch User Portfolio Breakdown",
+      "description": "This endpoint provides information about the user's good faith violation status, account restrictions, money available for investment or withdrawal, and overall investment performance metrics.\n\n##### ",
+      "applicationCategory": "Portfolio Reporting"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stock/{stockSymbol}/ownership",
+      "httpMethod": "GET",
+      "name": "Fetch User Ownership Details",
+      "description": "This endpoint provides detailed ownership information about a specific stock that a user owns, including insights into portfolio performance since acquiring the stock.\n##### Individual stock analysis ",
+      "applicationCategory": "Portfolio Reporting"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stocks",
+      "httpMethod": "GET",
+      "name": "Fetch List of All Stocks",
+      "description": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo for building stock catalogs and search functionality.\n\n**Stock catalog features include:**\n- **Bas",
+      "applicationCategory": "US Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/stock/{symbol}/details",
+      "httpMethod": "GET",
+      "name": "Fetch Stock Details",
+      "description": "This endpoint returns comprehensive details of a specific stock, including its pricing information, designed to provide users with in-depth insight into the stock.\n\n**Comprehensive stock information i",
+      "applicationCategory": "US Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stock/search",
+      "httpMethod": "GET",
+      "name": "Search Stocks",
+      "description": "This endpoint searches for a stock by a given query phrase or set of phrases, supporting advanced search capabilities with multiple filtering and sorting options.\n\nThe search functionality supports co",
+      "applicationCategory": "US Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/my_stocks",
+      "httpMethod": "GET",
+      "name": "Fetch User Stock Ownership",
+      "description": "This endpoint is used to get the list of stocks a user owns, providing a complete view of their current investment positions.\n\n##### User portfolio stocks include:\n  - **Owned positions:** showing all",
+      "applicationCategory": "US Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/calculate",
+      "httpMethod": "POST",
+      "name": "Calculate Order",
+      "description": "This endpoint estimates the exact order cost, fees, and trade feasibility for the specified order type before execution.  \n\nIt supports **Market**, **Limit**, and **Stop** order types and determines t",
+      "applicationCategory": "US Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order",
+      "httpMethod": "POST",
+      "name": "Place Order",
+      "description": "This is used to place an order using results from calculate order endpoint after confirming the user is eligible to make trades.\n\nBamboo supports trading during extended hours, to specify that you wan",
+      "applicationCategory": "US Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/{id}/status",
+      "httpMethod": "GET",
+      "name": "Fetch Order Status",
+      "description": "This endpoint is used to check the status of an order that has been placed, providing comprehensive details about order execution and current state.\n\n**Order status information includes:**\n- Order ide",
+      "applicationCategory": "US Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/pending_orders",
+      "httpMethod": "GET",
+      "name": "View Pending Orders",
+      "description": "This endpoint is used to check all pending orders made by users, displaying orders that are awaiting execution in the market.\n\n**Pending order management features:**\n- Active orders showing all LIMIT ",
+      "applicationCategory": "US Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/{id}/cancel",
+      "httpMethod": "POST",
+      "name": "Cancel Order",
+      "description": "This endpoint is used to cancel a pending order before it executes, allowing users to modify their trading strategy.\n\n**Cancellation rules include:**\n- Pending orders can be cancelled for LIMIT and ST",
+      "applicationCategory": "US Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/dictionary",
+      "httpMethod": "GET",
+      "name": "NGX Dictionary",
+      "description": "This endpoint provides the acceptable data for fetching the format for the states and LGAs required during account creation. This info is needed to enable users trade in the NG market.\n"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.comhttps://cscs-banks.investbamboo.com/",
+      "httpMethod": "GET",
+      "name": "Supported Banks and Sort Codes for NGX Trades",
+      "description": "This endpoint provides a list of all supported banks and sort codes by the Nigerian Brokerage Commissions. The bank details  provided are used for sending users their dividends from companies they've "
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/portfolio/breakdown",
+      "httpMethod": "GET",
+      "name": "Fetch User Portfolio",
+      "description": "This endpoint returns the information of a user's equity value, cash available for investing, and the user's stock position in the  Nigerian Market.\n",
+      "applicationCategory": "NG Stock Portfolio"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/user_cash_balance/{currency}",
+      "httpMethod": "GET",
+      "name": "Fetch User Cash Balance",
+      "description": "This endpoint returns data about the user's cash balance. \n",
+      "applicationCategory": "NG Stock Portfolio"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/deposit",
+      "httpMethod": "POST",
+      "name": "Create Deposit",
+      "description": "This endpoint is used to send the details needed to create a deposit request for your users. After verification is completed, \nthe user's position will be credited with the value requested. To get sta",
+      "applicationCategory": "NG Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/deposit/{reference}",
+      "httpMethod": "GET",
+      "name": "Fetch Deposits by Reference",
+      "description": "This is used to fetch a deposit by its specific transaction reference number.",
+      "applicationCategory": "NG Deposits"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/withdraw",
+      "httpMethod": "POST",
+      "name": "Initiate Withdrawal Request",
+      "description": "This endpoint is used to withdraw from users' cash balances.\n",
+      "applicationCategory": "NG Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/withdraw/{reference}",
+      "httpMethod": "GET",
+      "name": "Fetch Withdrawal by Reference",
+      "description": "This is used to fetch a withdrawal by its specific transaction reference number.",
+      "applicationCategory": "NG Withdrawals"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/stocks",
+      "httpMethod": "GET",
+      "name": "Fetch List of All Stocks",
+      "description": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo.\n",
+      "applicationCategory": "NG Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/stocks/{symbol}",
+      "httpMethod": "GET",
+      "name": "Fetch Stock by Symbol",
+      "description": "This endpoint returns all the details of a specified stock. This is used to offer a user more insight into a specific  stock option.\n",
+      "applicationCategory": "NG Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/my_stocks",
+      "httpMethod": "GET",
+      "name": "Fetch List of All Stocks",
+      "description": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo.\n",
+      "applicationCategory": "NG Securities"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order/calculate",
+      "httpMethod": "POST",
+      "name": "Calculate Order",
+      "description": "This endpoint is used to calculate an order request to help determine if a user can proceed with their desired BUY or SELL order.  Please note that the only order type you can place here is a Market O",
+      "applicationCategory": "NG Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order",
+      "httpMethod": "POST",
+      "name": "Place An Order on the NGX Market",
+      "description": "If the user is eligible to make trades, this endpoint is used to place an order using the result of the calculated order  endpoint. Please note: Tenants are to place just MARKET order type.\n",
+      "applicationCategory": "Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order/:order_id",
+      "httpMethod": "GET",
+      "name": "Fetch Order Details by ID",
+      "description": "This endpoint is used to fetch the details of an order. \n",
+      "applicationCategory": "NG Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order/:order_id/status",
+      "httpMethod": "GET",
+      "name": "Fetch Order Status by ID",
+      "description": "This endpoint is used to fetch the status of an order. \n",
+      "applicationCategory": "NG Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/pending_orders",
+      "httpMethod": "GET",
+      "name": "Fetch Pending Orders",
+      "description": "This endpoint is used to fetch a list of pending orders. \n",
+      "applicationCategory": "NG Stock Trading"
+    },
+    {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order/:order_id/cancel",
+      "httpMethod": "POST",
+      "name": "Cancel An Order on the NGX",
+      "description": "This endpoint is used to cancel an order. Kindly note that only pending orders can be cancelled.\n",
+      "applicationCategory": "NG Stock Trading"
+    }
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://powered-by-bamboo-sandbox.investbamboo.com"
+  }
+}

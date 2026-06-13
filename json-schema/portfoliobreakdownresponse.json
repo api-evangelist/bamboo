@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/PortfolioBreakdownResponse",
+  "title": "Portfolio breakdown response",
+  "required": [
+    "available_to_invest",
+    "base_wallet_balance",
+    "currency_symbol",
+    "equity_value",
+    "number_of_violations",
+    "restricted_by_dw",
+    "total_aum",
+    "total_invested",
+    "total_percent_change",
+    "total_return",
+    "value",
+    "withdrawable_cash"
+  ],
+  "type": "object",
+  "properties": {
+    "withdrawable_cash": {
+      "type": "number",
+      "description": "Maximum amount that can be withdrawn",
+      "example": 0
+    },
+    "value": {
+      "type": "number",
+      "description": "Value of portfolio",
+      "example": 0
+    },
+    "total_return": {
+      "type": "number",
+      "description": "Total return",
+      "example": 0
+    },
+    "total_percent_change": {
+      "type": "number",
+      "description": "Total portfolio change",
+      "example": 0
+    },
+    "total_invested": {
+      "type": "number",
+      "description": "Total invested",
+      "example": 0
+    },
+    "total_aum": {
+      "type": "number",
+      "description": "Total AUM",
+      "example": 0
+    },
+    "restricted_by_dw": {
+      "type": "boolean",
+      "description": "Restricted by DW",
+      "example": false
+    },
+    "number_of_violations": {
+      "type": "number",
+      "description": "Number of GFV for account",
+      "example": 0
+    },
+    "equity_value": {
+      "type": "number",
+      "description": "Equity value",
+      "example": 0
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Prices currency symbol",
+      "example": "$"
+    },
+    "base_wallet_balance": {
+      "type": "number",
+      "description": "Base wallet Balance",
+      "example": 0
+    },
+    "available_to_invest": {
+      "type": "number",
+      "description": "Buying power",
+      "example": 0
+    }
+  }
+}

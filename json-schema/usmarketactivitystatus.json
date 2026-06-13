@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/USMarketActivityStatus",
+  "title": "US Market Activity response",
+  "required": [
+    "market_session",
+    "open_date",
+    "market_session_timestamp"
+  ],
+  "type": "object",
+  "properties": {
+    "market_session": {
+      "type": "object",
+      "description": "Indicates which market session is currently open",
+      "properties": {
+        "pre_market": {
+          "type": "boolean",
+          "description": "Pre-market session status (before 9:30 AM ET)",
+          "example": true
+        },
+        "core_market": {
+          "type": "boolean",
+          "description": "Regular market hours status (9:30 AM - 4:00 PM ET)",
+          "example": false
+        },
+        "post_market": {
+          "type": "boolean",
+          "description": "Post-market session status (after 4:00 PM ET)",
+          "example": false
+        }
+      }
+    },
+    "open_date": {
+      "type": "object",
+      "description": "Unix timestamps for when each market session opens on the current trading day",
+      "properties": {
+        "pre_market": {
+          "type": "number",
+          "description": "Pre-market session open date timestamp",
+          "example": 1759737600
+        },
+        "core_market": {
+          "type": "number",
+          "description": "Core market session open date timestamp",
+          "example": 1759498200
+        },
+        "post_market": {
+          "type": "number",
+          "description": "Post-market session open date timestamp",
+          "example": 1759521600
+        }
+      }
+    },
+    "market_session_timestamp": {
+      "type": "object",
+      "description": "Unix timestamps indicating when each market session opens for the current day",
+      "properties": {
+        "pre_market": {
+          "type": "number",
+          "description": "Pre-market session timestamp",
+          "example": 1759478400
+        },
+        "core_market": {
+          "type": "number",
+          "description": "Core market session timestamp",
+          "example": 1759498200
+        },
+        "post_market": {
+          "type": "number",
+          "description": "Post-market session timestamp",
+          "example": 1759521600
+        }
+      }
+    }
+  }
+}

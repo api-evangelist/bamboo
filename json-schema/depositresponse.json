@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/DepositResponse",
+  "title": "Deposit Details",
+  "required": [
+    "txref",
+    "transfer_note",
+    "transfer_bank",
+    "transfer_account",
+    "transfer_amount",
+    "mode",
+    "currency",
+    "account_expiration"
+  ],
+  "type": "object",
+  "properties": {
+    "txref": {
+      "type": "string",
+      "description": "Txref of deposit",
+      "example": "f308cd36-a91a-4ee6-a380-49c096d6b0e1-1696686649"
+    },
+    "transfer_note": {
+      "type": "string",
+      "description": "Note",
+      "example": null
+    },
+    "transfer_bank": {
+      "type": "string",
+      "description": "Transfer Bank",
+      "example": "Mock Bank"
+    },
+    "transfer_amount": {
+      "type": "string",
+      "description": "Ammount",
+      "example": 1738000
+    },
+    "transfer_account": {
+      "type": "string",
+      "description": "Transfer Account",
+      "example": "0067100155"
+    },
+    "mode": {
+      "type": "string",
+      "description": "Mode of payment",
+      "example": null
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency",
+      "example": "NGN"
+    },
+    "account_expiration": {
+      "type": "string",
+      "description": "Account expiration",
+      "example": null
+    }
+  }
+}

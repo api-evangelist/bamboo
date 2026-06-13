@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngdeposit_by_reference_response",
+  "title": "Deposit request",
+  "required": [
+    "amount",
+    "currency",
+    "dollar_amount",
+    "dollar_fee",
+    "exchange_rate",
+    "fee",
+    "provider",
+    "provider_txref",
+    "status"
+  ],
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "number",
+      "description": "Amount to be deposited",
+      "example": 200000
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency",
+      "example": "NGN"
+    },
+    "dollar_amount": {
+      "type": "number",
+      "description": "Dollar equivalent of amount to be deposited",
+      "example": 230.41
+    },
+    "dollar_fee": {
+      "type": "number",
+      "description": "Dollar Fee",
+      "example": 0.02
+    },
+    "exchange_rate": {
+      "type": "number",
+      "description": "Fee",
+      "example": 868
+    },
+    "fee": {
+      "type": "number",
+      "description": "Fee",
+      "example": 50
+    },
+    "provider": {
+      "type": "string",
+      "description": "API Consumer Name",
+      "example": "invest-bamboo"
+    },
+    "provider_txref": {
+      "type": "string",
+      "description": "Deposit reference",
+      "example": "INVcal2VzeVGJkCXNx"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status",
+      "example": "Successful"
+    }
+  }
+}

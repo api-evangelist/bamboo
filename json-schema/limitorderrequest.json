@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/LimitOrderRequest",
+  "title": "LimitOrderRequest",
+  "type": "object",
+  "properties": {
+    "order_type": {
+      "type": "string",
+      "description": "Order type options: `MARKET`, `LIMIT`, `STOP`",
+      "enum": [
+        "LIMIT"
+      ]
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock ticker symbol",
+      "example": "AAPL"
+    },
+    "side": {
+      "type": "string",
+      "description": "BUY or SELL",
+      "enum": [
+        "buy",
+        "sell"
+      ]
+    },
+    "price_per_share": {
+      "type": "number",
+      "description": "Current price per share",
+      "example": 9.13
+    },
+    "price": {
+      "type": "number",
+      "description": "Price at which the user wants their LIMIT or STOP orders to be executed",
+      "example": 9.13
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Specified quantity",
+      "example": 100
+    },
+    "sell_all": {
+      "type": "boolean",
+      "description": "set to true if the user wants to sell_all the shares they have for the specified stock symbol.",
+      "example": false
+    }
+  },
+  "required": [
+    "order_type",
+    "symbol",
+    "side",
+    "price_per_share",
+    "price",
+    "quantity"
+  ]
+}

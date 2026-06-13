@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngportfolio_breakdown_response",
+  "title": "NGX Portfolio response",
+  "type": "object",
+  "properties": {
+    "withdrawable_cash": {
+      "type": "number",
+      "description": "Maximum amount that can be withdrawn",
+      "example": 0
+    },
+    "total_user_equity": {
+      "type": "number",
+      "description": "total_user_equity",
+      "example": 0
+    },
+    "total_percent_change": {
+      "type": "number",
+      "description": "Total portfolio change",
+      "example": 0
+    },
+    "total_return": {
+      "type": "number",
+      "description": "Stock total return",
+      "example": 0
+    },
+    "total_cost": {
+      "type": "number",
+      "description": "Stock total return",
+      "example": 0
+    },
+    "currency": {
+      "type": "string",
+      "description": "Withdraw currency",
+      "example": "NGN"
+    },
+    "change": {
+      "type": "integer",
+      "description": "Change",
+      "example": 33.4
+    },
+    "available_to_invest": {
+      "type": "number",
+      "description": "Buying power",
+      "example": 0
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngorder_details_response",
+  "title": "NGX Order details response",
+  "type": "object",
+  "properties": {
+    "avatar": {
+      "type": "string",
+      "description": "Theme avatar",
+      "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d"
+    },
+    "dollar_fee": {
+      "type": "number",
+      "description": "Dollar Fee",
+      "example": 0.42
+    },
+    "dollar_price_per_share": {
+      "type": "number",
+      "description": "Dollar equivalent of price for order",
+      "example": 0.42
+    },
+    "execution_history": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "number",
+          "description": "Timestamp",
+          "example": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Quantity requested",
+          "example": 0
+        },
+        "idempotency_key": {
+          "type": "float",
+          "description": "idempotency_key",
+          "example": 0
+        },
+        "amount": {
+          "type": "float",
+          "description": "Naira fee",
+          "example": 0
+        }
+      }
+    },
+    "filled_quantity": {
+      "type": "number",
+      "description": "Quantity filled",
+      "example": 0
+    },
+    "id": {
+      "type": "string",
+      "description": "Order ID",
+      "example": "BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Stock logo URL"
+    },
+    "naira_fee": {
+      "type": "float",
+      "description": "Naira fee",
+      "example": 33.15
+    },
+    "naira_order_price": {
+      "type": "number",
+      "description": "Naira price for order",
+      "example": 364.65
+    },
+    "naira_price_per_share": {
+      "type": "number",
+      "description": "Naira price for order",
+      "example": 0.42
+    },
+    "price": {
+      "type": "number",
+      "description": "Price",
+      "example": 33.15
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity requested",
+      "example": 10
+    },
+    "side": {
+      "type": "string",
+      "description": "Side; BUY or SELL",
+      "example": "BUY"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status",
+      "example": "Successful"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol to `BUY` or `SELL`",
+      "default": "DDD"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type: MARKET, STOP, LIMIT",
+      "example": "MARKET"
+    }
+  }
+}

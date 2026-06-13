@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/StocksListResponse",
+  "title": "List of all active stocks response",
+  "type": "object",
+  "properties": {
+    "next_token": {
+      "type": "integer",
+      "description": "Next token for pagination",
+      "example": 10
+    },
+    "stocks": {
+      "type": "array",
+      "description": "Stock response",
+      "items": {
+        "title": "Stock response",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Stock name",
+            "example": "Apple Inc"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol",
+            "example": "AAPL"
+          },
+          "logo": {
+            "type": "string",
+            "description": "Stock logo URL",
+            "example": "https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/stock-avatars%2Fwhite-logos%2FApple_APPL.png?alt=media&token=5a7398a8-bd35-466b-803c-04b6cbceff97"
+          }
+        }
+      }
+    }
+  }
+}

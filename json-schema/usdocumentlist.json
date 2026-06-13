@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/USDocumentList",
+  "title": "List of Documents by Document Type",
+  "required": [
+    "documents"
+  ],
+  "type": "object",
+  "properties": {
+    "documents": {
+      "type": "array",
+      "description": "List of Documents",
+      "example": [
+        {
+          "name": "Aug 30, 2024 Trade Confirm",
+          "file_key": "2024083001"
+        },
+        {
+          "name": "Aug 29, 2024 Trade Confirm",
+          "file_key": "2024082901"
+        },
+        {
+          "name": "Aug 28, 2024 Trade Confirm",
+          "file_key": "2024082801"
+        },
+        {
+          "name": "Aug 27, 2024 Trade Confirm",
+          "file_key": "2024082701"
+        },
+        {
+          "name": "Aug 26, 2024 Trade Confirm",
+          "file_key": "2024082601"
+        },
+        {
+          "name": "Aug 23, 2024 Trade Confirm",
+          "file_key": "2024082301"
+        },
+        {
+          "name": "Aug 19, 2024 Trade Confirm",
+          "file_key": "2024081901"
+        },
+        {
+          "name": "Aug 16, 2024 Trade Confirm",
+          "file_key": "2024081601"
+        },
+        {
+          "name": "Aug 14, 2024 Trade Confirm",
+          "file_key": "2024081401"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/ErrorResponse",
+  "title": "Error response",
+  "required": [
+    "message"
+  ],
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "Error response for external or internal errors not connected to data",
+      "example": "Message why request didn't succeed"
+    }
+  },
+  "description": "Error response for external or internal errors not connected to data"
+}

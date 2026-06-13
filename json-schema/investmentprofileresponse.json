@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/InvestmentProfileResponse",
+  "title": "Investment Profile response",
+  "required": [
+    "position",
+    "marital_status",
+    "employment_status",
+    "company",
+    "employment_type - goal",
+    "experience",
+    "yearly_income",
+    "liquid",
+    "net_worth",
+    "risk_tolerance",
+    "dependents",
+    "source_of_wealth"
+  ],
+  "type": "object",
+  "properties": {
+    "position": {
+      "type": "string",
+      "description": "Job position or title",
+      "example": "ARTIST",
+      "nullable": true
+    },
+    "marital_status": {
+      "type": "string",
+      "description": "Marital status",
+      "example": "SINGLE",
+      "enum": [
+        "SINGLE",
+        "MARRIED",
+        "DIVORCED",
+        "WIDOWED"
+      ]
+    },
+    "employment_status": {
+      "type": "string",
+      "description": "Current employment situation",
+      "example": "UNEMPLOYED",
+      "enum": [
+        "EMPLOYED",
+        "SELF_EMPLOYED",
+        "UNEMPLOYED",
+        "RETIRED",
+        "STUDENT"
+      ]
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name where employed",
+      "example": "BAMBOO",
+      "nullable": true
+    },
+    "employment_type": {
+      "type": "string",
+      "description": "Industry or type of employment",
+      "example": "MANAGEMENT",
+      "nullable": true
+    },
+    "goal": {
+      "type": "string",
+      "description": "Investment goal or trading frequency",
+      "example": "ACTIVE_DAILY",
+      "enum": [
+        "ACTIVE_DAILY",
+        "GROWTH",
+        "INCOME",
+        "SPECULATION",
+        "PRESERVATION"
+      ]
+    },
+    "experience": {
+      "type": "string",
+      "description": "Previous investment experience level",
+      "example": "NONE",
+      "enum": [
+        "NONE",
+        "LIMITED",
+        "GOOD",
+        "EXTENSIVE"
+      ]
+    },
+    "yearly_income": {
+      "type": "integer",
+      "description": "Annual income in USD",
+      "example": 12500
+    },
+    "liquid": {
+      "type": "integer",
+      "description": "Liquid assets amount in USD",
+      "example": 12500
+    },
+    "net_worth": {
+      "type": "integer",
+      "description": "Total net worth in USD",
+      "example": 12500
+    },
+    "risk_tolerance": {
+      "type": "string",
+      "description": "Investment risk comfort level",
+      "example": "HIGH",
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH"
+      ]
+    },
+    "dependents": {
+      "type": "integer",
+      "description": "Number of financial dependents",
+      "example": 0
+    },
+    "source_of_wealth": {
+      "type": "string",
+      "description": "Primary source of wealth",
+      "example": "SAVINGS",
+      "enum": [
+        "EMPLOYMENT",
+        "BUSINESS",
+        "INHERITANCE",
+        "INVESTMENTS"
+      ]
+    }
+  }
+}

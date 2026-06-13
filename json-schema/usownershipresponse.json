@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/USOwnershipResponse",
+  "title": "User Ownership Details",
+  "required": [
+    "currency_symbol",
+    "ownership",
+    "pending_orders"
+  ],
+  "type": "object",
+  "properties": {
+    "currency_symbol": {
+      "type": "number",
+      "description": "currency_symbol",
+      "example": "\u20a6"
+    },
+    "ownership": {
+      "type": "object",
+      "description": "Value of portfolio",
+      "properties": {
+        "shares": {
+          "type": "number",
+          "description": "shares",
+          "example": 1.29493296
+        },
+        "average_cost": {
+          "type": "number",
+          "description": "average_cost",
+          "example": 162502.55
+        },
+        "equity": {
+          "type": "number",
+          "description": "equity",
+          "example": 220027.57
+        },
+        "portfolio_diversity": {
+          "type": "number",
+          "description": "portfolio_diversity",
+          "example": 75
+        },
+        "todays_return": {
+          "type": "boolean",
+          "description": "todays_return",
+          "example": -4815.55
+        },
+        "todays_return_percent": {
+          "type": "number",
+          "description": "todays_return_percent",
+          "example": -2.14
+        },
+        "total_return": {
+          "type": "number",
+          "description": "total_return",
+          "example": 9596.86
+        },
+        "total_return_percent": {
+          "type": "string",
+          "description": "total_return_percent",
+          "example": 4.560546875
+        }
+      }
+    },
+    "pending_orders": {
+      "type": "string",
+      "description": "pending_orders",
+      "example": []
+    }
+  }
+}

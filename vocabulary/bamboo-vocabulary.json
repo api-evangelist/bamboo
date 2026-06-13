@@ -1,0 +1,499 @@
+{
+  "$schema": "https://schema.org/",
+  "name": "Bamboo Investment API Vocabulary",
+  "description": "Domain vocabulary for the Bamboo Investment API covering African fintech, investment platforms, and brokerage operations.",
+  "provider": "Bamboo Invest",
+  "baseURL": "https://api.investbamboo.com",
+  "terms": [
+    {
+      "term": "Authentication",
+      "type": "tag",
+      "description": "Before you start making requests, you\u2019ll need to generate an access token. Every request to the API must be authenticated using access tokens and user context headers \u2014 this ensures secure and authorized access to your resources.\n\nHere are a few quick tips to help you integrate smoothly and keep you"
+    },
+    {
+      "term": "Account Management",
+      "type": "tag",
+      "description": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user\u2019s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade"
+    },
+    {
+      "term": "Overview",
+      "type": "tag",
+      "description": "Money movement is the backbone of investment operations, enabling users to fund their brokerage accounts and withdraw profits. Understanding the settlement process is critical for accurate integration and operational transparency.\n### How Settlement Works\nThe settlement process ensures verification,"
+    },
+    {
+      "term": "Deposits",
+      "type": "tag",
+      "description": "Deposits fund user brokerage accounts for stock purchases. All deposits require verification through your webhook endpoint before funds are credited.\n\nOn the <a href=\"#tag/US-Stock-Portfolio/operation/Web.Api.PortfolioController.portfolio\">Portfolio endpoint</a>, different cash fields serve specific"
+    },
+    {
+      "term": "Withdrawals",
+      "type": "tag",
+      "description": "Withdrawals allow users to extract funds from their brokerage accounts after successful trades. Understanding the settlement timeline is essential.\n\n#### Settlement Timeline\n- Stock sale proceeds settle at T+1 business day.\n- `unsettled_cash` indicates funds that are pending settlement.\n- Once settl"
+    },
+    {
+      "term": "Portfolio Reporting",
+      "type": "tag",
+      "description": "The user's portfolio provides comprehensive views of investment performance, cash positions, and account status. Understanding the different cash types and portfolio calculations is essential for presenting accurate information to users.\n\n##### Key Portfolio Terms\n#### Cash Categories:\n- **cash:** T"
+    },
+    {
+      "term": "NG Stock Portfolio",
+      "type": "tag",
+      "description": "This section provides all the information a tenant needs to know about a user's investment portfolio values and general  user performance.\n"
+    },
+    {
+      "term": "US Securities",
+      "type": "tag",
+      "description": "The section provides comprehensive information about available US stocks, including real-time pricing, company details, and market data. \n\nStock themes also help users discover investment opportunities based on trends, sectors, and investment strategies. See the [Featured Themes section](#tag/Featur"
+    },
+    {
+      "term": "NG Securities",
+      "type": "tag",
+      "description": "The section provides us endpoints that allows a client to fetch all the information pertaining to the NG stocks available on Bamboo. \n"
+    },
+    {
+      "term": "US Stock Trading",
+      "type": "tag",
+      "description": "Users can buy and sell US securities, with support for multiple order types and fractional shares. Understanding order calculations, execution timing, and fees is crucial for integration.\n### Trading Fundamentals\n- **Fractional Shares:** Users can buy/sell portions of expensive stocks (e.g., 0.1 sha"
+    },
+    {
+      "term": "NG Stock Trading",
+      "type": "tag",
+      "description": "The stock trading section details all the endpoints needed to calculate and make trade orders for all NG stock available  on Bamboo. Please note that trade charges are applicable and should be agreed upon with the business team. During system setup,  the agreed charges would be applied by the integr"
+    },
+    {
+      "term": "Market Activity",
+      "type": "tag",
+      "description": "The market activity section provides you with endpoints that return the opening and closing times for markets we support, allowing you to check when market is open/closed. \n\nThis endpoint supports **US Stock extended trading hours**, allowing users to place trades during pre-market and post-market s"
+    },
+    {
+      "term": "Exchange Rate",
+      "type": "tag",
+      "description": "The exchange rate section provides you with an endpoint that fetches real-time exchange rates effortlessly, enabling  accurate currency conversions and financial calculations. \n"
+    },
+    {
+      "term": "Featured Themes",
+      "type": "tag",
+      "description": "Stocks are grouped into various categories which help users explore and filter stocks based on common themes, sectors, or  other criteria. The endpoints in this section allow you to retrieve a list of categories that group different stocks together  and also view details about these categories.\n"
+    },
+    {
+      "term": "Financial Documents",
+      "type": "tag",
+      "description": "Access various financial documents required for user account management, tax reporting, and regulatory compliance through secure document retrieval endpoints.\n\n##### Document Types and Generation\nThe system generates three primary document categories to meet regulatory requirements and provide users"
+    },
+    {
+      "term": "US Stock Events",
+      "type": "tag",
+      "description": "Events within the Bamboo ecosystem signifies account or transaction status changes. Using Google Cloud Pub/Sub, we notify tenants of status changes in operations like brokerage account creation, deposits, withdrawals and trades.\n\nThis section outlines the events published to tenants through the Pub/"
+    },
+    {
+      "term": "content-type",
+      "type": "parameter",
+      "description": "Acceptable content type"
+    },
+    {
+      "term": "accept-language",
+      "type": "parameter",
+      "description": "Acceptable language; 'en' for English"
+    },
+    {
+      "term": "app-key",
+      "type": "parameter",
+      "description": "Application key that uniquely identifies a tenant as an API consumer."
+    },
+    {
+      "term": "x-request-source",
+      "type": "parameter",
+      "description": "The tenant's username"
+    },
+    {
+      "term": "x-client-token",
+      "type": "parameter",
+      "description": "API Consumer Authorisation Token"
+    },
+    {
+      "term": "x-user-id",
+      "type": "parameter",
+      "description": "Required for user authentication"
+    },
+    {
+      "term": "x-subject-type",
+      "type": "parameter",
+      "description": "For user request -> 'tenant'."
+    },
+    {
+      "term": "limit",
+      "type": "parameter",
+      "description": "Number of requested results default=20"
+    },
+    {
+      "term": "next_token",
+      "type": "parameter",
+      "description": "Next token for pagination"
+    },
+    {
+      "term": "start_date",
+      "type": "parameter",
+      "description": "Unix datetime stamp"
+    },
+    {
+      "term": "end_date",
+      "type": "parameter",
+      "description": "Unix datetime stamp"
+    },
+    {
+      "term": "id",
+      "type": "parameter",
+      "description": "User ID"
+    },
+    {
+      "term": "reference",
+      "type": "parameter",
+      "description": "withdrawal reference"
+    },
+    {
+      "term": "featured",
+      "type": "parameter",
+      "description": "Featured Themes Flag"
+    },
+    {
+      "term": "market",
+      "type": "parameter",
+      "description": "Market Type; US"
+    },
+    {
+      "term": "document_type",
+      "type": "parameter",
+      "description": "Used to state the type of document you want to download; \n- ```confirms``` for Trade Confirmations\n- ```statements``` for Account Statement\n- ```taxforms``` for Tax Documents\n"
+    },
+    {
+      "term": "file_key",
+      "type": "parameter",
+      "description": "File key gotten from the document list"
+    },
+    {
+      "term": "currency",
+      "type": "parameter",
+      "description": "NGN - to get prices in Naira"
+    },
+    {
+      "term": "symbol",
+      "type": "parameter",
+      "description": "Stock Symbol"
+    },
+    {
+      "term": "query",
+      "type": "parameter",
+      "description": "Query phrase to match stock name or symbol"
+    },
+    {
+      "term": "theme_id",
+      "type": "parameter",
+      "description": "Theme id to filter by. This takes only one value"
+    },
+    {
+      "term": "sorting",
+      "type": "parameter",
+      "description": "Used to sort the search either by ascending order, descending order, etc. The acceptable values are stated in the description above.\n"
+    },
+    {
+      "term": "filters",
+      "type": "parameter",
+      "description": "Used to filter the search by providing certain string values separated by a comma. The expected values to be passed for the filters param are stated in the description above.\n"
+    },
+    {
+      "term": "search_term",
+      "type": "parameter",
+      "description": "Stock symbol. E.g. `ZENITHBANK`"
+    },
+    {
+      "term": "order_id",
+      "type": "parameter",
+      "description": "Order id"
+    },
+    {
+      "term": "bamboowebhook",
+      "type": "schema",
+      "description": "Data model for bamboowebhook"
+    },
+    {
+      "term": "DepositRequest",
+      "type": "schema",
+      "description": "Data model for DepositRequest"
+    },
+    {
+      "term": "DepositResponse",
+      "type": "schema",
+      "description": "Data model for DepositResponse"
+    },
+    {
+      "term": "Unauthorized",
+      "type": "schema",
+      "description": "Data model for Unauthorized"
+    },
+    {
+      "term": "ErrorChangesetResponse",
+      "type": "schema",
+      "description": "Data model for ErrorChangesetResponse"
+    },
+    {
+      "term": "TenantDepositsPaginationResponse",
+      "type": "schema",
+      "description": "Data model for TenantDepositsPaginationResponse"
+    },
+    {
+      "term": "DepositStatus",
+      "type": "schema",
+      "description": "Data model for DepositStatus"
+    },
+    {
+      "term": "TenantWithdrawsPaginationResponse",
+      "type": "schema",
+      "description": "Data model for TenantWithdrawsPaginationResponse"
+    },
+    {
+      "term": "ResourceNotFound",
+      "type": "schema",
+      "description": "Data model for ResourceNotFound"
+    },
+    {
+      "term": "ErrorResponse",
+      "type": "schema",
+      "description": "Data model for ErrorResponse"
+    },
+    {
+      "term": "ThemesListingResponse",
+      "type": "schema",
+      "description": "Data model for ThemesListingResponse"
+    },
+    {
+      "term": "TenantBrokerageWithdrawBody",
+      "type": "schema",
+      "description": "Data model for TenantBrokerageWithdrawBody"
+    },
+    {
+      "term": "ExchangeRatesResponse",
+      "type": "schema",
+      "description": "Data model for ExchangeRatesResponse"
+    },
+    {
+      "term": "USMarketActivityStatus",
+      "type": "schema",
+      "description": "Data model for USMarketActivityStatus"
+    },
+    {
+      "term": "USDocumentList",
+      "type": "schema",
+      "description": "Data model for USDocumentList"
+    },
+    {
+      "term": "USDocuments",
+      "type": "schema",
+      "description": "Data model for USDocuments"
+    },
+    {
+      "term": "ProfileResponse",
+      "type": "schema",
+      "description": "Data model for ProfileResponse"
+    },
+    {
+      "term": "InvestmentProfileResponse",
+      "type": "schema",
+      "description": "Data model for InvestmentProfileResponse"
+    },
+    {
+      "term": "PortfolioResponse",
+      "type": "schema",
+      "description": "Data model for PortfolioResponse"
+    },
+    {
+      "term": "PortfolioBreakdownResponse",
+      "type": "schema",
+      "description": "Data model for PortfolioBreakdownResponse"
+    },
+    {
+      "term": "USOwnershipResponse",
+      "type": "schema",
+      "description": "Data model for USOwnershipResponse"
+    },
+    {
+      "term": "StocksListResponse",
+      "type": "schema",
+      "description": "Data model for StocksListResponse"
+    },
+    {
+      "term": "StockDetails",
+      "type": "schema",
+      "description": "Data model for StockDetails"
+    },
+    {
+      "term": "UserStockOwnership",
+      "type": "schema",
+      "description": "Data model for UserStockOwnership"
+    },
+    {
+      "term": "StocksSearchResponse",
+      "type": "schema",
+      "description": "Data model for StocksSearchResponse"
+    },
+    {
+      "term": "MarketOrderRequest",
+      "type": "schema",
+      "description": "Data model for MarketOrderRequest"
+    },
+    {
+      "term": "LimitOrderRequest",
+      "type": "schema",
+      "description": "Data model for LimitOrderRequest"
+    },
+    {
+      "term": "StopOrderRequest",
+      "type": "schema",
+      "description": "Data model for StopOrderRequest"
+    },
+    {
+      "term": "CalculatedOrderResponse",
+      "type": "schema",
+      "description": "Data model for CalculatedOrderResponse"
+    },
+    {
+      "term": "OrderStockRequest",
+      "type": "schema",
+      "description": "Data model for OrderStockRequest"
+    },
+    {
+      "term": "OrderStockIdResponse",
+      "type": "schema",
+      "description": "Data model for OrderStockIdResponse"
+    },
+    {
+      "term": "OrderStatusResponse",
+      "type": "schema",
+      "description": "Data model for OrderStatusResponse"
+    },
+    {
+      "term": "PendingOrdersResponse",
+      "type": "schema",
+      "description": "Data model for PendingOrdersResponse"
+    },
+    {
+      "term": "CancelOrderStockIdResponse",
+      "type": "schema",
+      "description": "Data model for CancelOrderStockIdResponse"
+    },
+    {
+      "term": "DictionaryResponse",
+      "type": "schema",
+      "description": "Data model for DictionaryResponse"
+    },
+    {
+      "term": "WithdrawStatusResponse",
+      "type": "schema",
+      "description": "Data model for WithdrawStatusResponse"
+    },
+    {
+      "term": "lsxngdictionary",
+      "type": "schema",
+      "description": "Data model for lsxngdictionary"
+    },
+    {
+      "term": "cscs_banks_and_sortcodes",
+      "type": "schema",
+      "description": "Data model for cscs_banks_and_sortcodes"
+    },
+    {
+      "term": "lsxnguser_cash_balance_response",
+      "type": "schema",
+      "description": "Data model for lsxnguser_cash_balance_response"
+    },
+    {
+      "term": "lsxngportfolio_breakdown_response",
+      "type": "schema",
+      "description": "Data model for lsxngportfolio_breakdown_response"
+    },
+    {
+      "term": "lsxngdeposit",
+      "type": "schema",
+      "description": "Data model for lsxngdeposit"
+    },
+    {
+      "term": "lsxngdeposit_response",
+      "type": "schema",
+      "description": "Data model for lsxngdeposit_response"
+    },
+    {
+      "term": "lsxngdeposit_by_reference_response",
+      "type": "schema",
+      "description": "Data model for lsxngdeposit_by_reference_response"
+    },
+    {
+      "term": "lsxngwithdraw",
+      "type": "schema",
+      "description": "Data model for lsxngwithdraw"
+    },
+    {
+      "term": "lsxngwithdraw_response",
+      "type": "schema",
+      "description": "Data model for lsxngwithdraw_response"
+    },
+    {
+      "term": "lsxngwithdraw_by_reference_response",
+      "type": "schema",
+      "description": "Data model for lsxngwithdraw_by_reference_response"
+    },
+    {
+      "term": "lsxngstocks_response",
+      "type": "schema",
+      "description": "Data model for lsxngstocks_response"
+    },
+    {
+      "term": "lsxngmy_stocks_response",
+      "type": "schema",
+      "description": "Data model for lsxngmy_stocks_response"
+    },
+    {
+      "term": "lsxngstock_about_info",
+      "type": "schema",
+      "description": "Data model for lsxngstock_about_info"
+    },
+    {
+      "term": "lsxngcalculate_order",
+      "type": "schema",
+      "description": "Data model for lsxngcalculate_order"
+    },
+    {
+      "term": "lsxngcalculate_order_response",
+      "type": "schema",
+      "description": "Data model for lsxngcalculate_order_response"
+    },
+    {
+      "term": "lsxngorder",
+      "type": "schema",
+      "description": "Data model for lsxngorder"
+    },
+    {
+      "term": "lsxngorder_response",
+      "type": "schema",
+      "description": "Data model for lsxngorder_response"
+    },
+    {
+      "term": "lsxngorder_details_response",
+      "type": "schema",
+      "description": "Data model for lsxngorder_details_response"
+    },
+    {
+      "term": "lsxngorder_status_response",
+      "type": "schema",
+      "description": "Data model for lsxngorder_status_response"
+    },
+    {
+      "term": "lsxngpending_order_response",
+      "type": "schema",
+      "description": "Data model for lsxngpending_order_response"
+    },
+    {
+      "term": "lsxngcancel_orders_response",
+      "type": "schema",
+      "description": "Data model for lsxngcancel_orders_response"
+    }
+  ]
+}

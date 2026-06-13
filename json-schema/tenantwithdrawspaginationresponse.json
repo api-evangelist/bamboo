@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/TenantWithdrawsPaginationResponse",
+  "title": "List of all withdrawals with pagination",
+  "type": "object",
+  "properties": {
+    "next_token": {
+      "type": "integer",
+      "description": "Next token for pagination",
+      "example": 10
+    },
+    "withdrawals": {
+      "type": "array",
+      "description": "Withdrawal response",
+      "items": {
+        "title": "Deposit response",
+        "type": "object",
+        "properties": {
+          "user_surname": {
+            "type": "string",
+            "description": "User surname",
+            "example": "Doe"
+          },
+          "user_phone": {
+            "type": "string",
+            "description": "User's phone number",
+            "example": "+2348033741268"
+          },
+          "user_name": {
+            "type": "string",
+            "description": "User name",
+            "example": "John"
+          },
+          "user_indentifier": {
+            "type": "string",
+            "description": "User indentifier (BVN or NIN)",
+            "example": 22388291636
+          },
+          "user_email": {
+            "type": "string",
+            "description": "User email",
+            "example": "johndoe@gmail.com"
+          },
+          "swift_aba_code": {
+            "type": "string",
+            "description": "Swift or aba code - only if currency is USD"
+          },
+          "status": {
+            "type": "string",
+            "description": "Deposit status",
+            "example": "pending"
+          },
+          "reference": {
+            "type": "string",
+            "description": "reference",
+            "example": "INVKPxiJVc40BNaQBH"
+          },
+          "intermediary_bank_swift_code": {
+            "type": "string",
+            "description": "bank code"
+          },
+          "intermediary_bank": {
+            "type": "string",
+            "description": "Intermediary bank - only if currency is USD"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Deposit id",
+            "example": 5804
+          },
+          "fees": {
+            "type": "string",
+            "description": "Fees information"
+          },
+          "exchange_rate": {
+            "type": "string",
+            "description": "Exchange rate"
+          },
+          "dollar_fees": {
+            "type": "string",
+            "description": "Fees information in dollar"
+          },
+          "dollar_amount": {
+            "type": "integer",
+            "description": "amount",
+            "example": 130
+          },
+          "currency": {
+            "type": "string",
+            "description": "currency"
+          },
+          "created_at": {
+            "type": "integer",
+            "description": "Creation date in unix timestamp UTC",
+            "example": "2022-02-02 01:10:20 UTC"
+          },
+          "beneficiary_name": {
+            "type": "string",
+            "description": "Beneficiary name - only if currency is USD"
+          },
+          "bank_zip_code": {
+            "type": "string",
+            "description": "Bank zip code - only if currency is USD"
+          },
+          "bank_state": {
+            "type": "string",
+            "description": "Bank state - only if currency is USD"
+          },
+          "bank_name": {
+            "type": "string",
+            "description": "Bank name - only if currency is USD"
+          },
+          "bank_country": {
+            "type": "string",
+            "description": "Bank country - only if currency is USD"
+          },
+          "bank_address": {
+            "type": "string",
+            "description": "Bank address - only if currency is USD"
+          },
+          "amount": {
+            "type": "integer",
+            "description": "amount",
+            "example": 13400
+          },
+          "additional_instructions": {
+            "type": "string",
+            "description": "Additional instructuons - only if currency is USD"
+          },
+          "account_number": {
+            "type": "string",
+            "description": "account number",
+            "example": 23768954
+          }
+        },
+        "description": "Deposit parameters"
+      }
+    }
+  },
+  "description": "List of deposits and next_token"
+}

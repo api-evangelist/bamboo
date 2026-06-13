@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngcalculate_order",
+  "title": "Calculate order request",
+  "required": [
+    "type",
+    "symbol",
+    "side",
+    "quantity",
+    "price",
+    "currency"
+  ],
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Order type options; MARKET",
+      "default": "MARKET"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol",
+      "default": "ZENITHBANK"
+    },
+    "side": {
+      "type": "string",
+      "description": "\u2018BUY\u2019 or \u2018SELL\u2019",
+      "default": "BUY"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "whole number of stocks to buy or sell",
+      "default": 10
+    },
+    "price": {
+      "type": "number",
+      "description": "Stop price or limit price",
+      "default": 10
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency",
+      "example": "NGN"
+    }
+  }
+}

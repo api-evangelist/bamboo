@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/ProfileResponse",
+  "title": "Profile response",
+  "required": [
+    "account_number",
+    "age",
+    "carrot_integration_status",
+    "citizenship",
+    "city",
+    "email",
+    "email_verified",
+    "engagement_status",
+    "gender",
+    "name",
+    "phone_number",
+    "postal_code",
+    "province",
+    "street",
+    "surname"
+  ],
+  "type": "object",
+  "properties": {
+    "surname": {
+      "type": "string",
+      "description": "Surname",
+      "example": "Doe"
+    },
+    "street": {
+      "type": "string",
+      "description": "Street",
+      "example": "4383 Ms. Godspower Savage Squares, Ngaski Lagos"
+    },
+    "province": {
+      "type": "string",
+      "description": "Province",
+      "example": "Lagos State"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "Postal code",
+      "example": "+234"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "Phone number",
+      "example": "+2347083864023"
+    },
+    "next_of_kin": {
+      "type": "string",
+      "description": "Full name of Next of Kin",
+      "example": "Phil Doe"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name",
+      "example": "John"
+    },
+    "gender": {
+      "type": "string",
+      "description": "Gender",
+      "example": "Man"
+    },
+    "engagement_status": {
+      "type": "string",
+      "description": "The User's engagement status in the system. NOTE - use it only to show banner on main page.",
+      "example": "no_trade",
+      "enum": [
+        "no_deposit",
+        "no_trade",
+        "traded"
+      ]
+    },
+    "email_verified": {
+      "type": "boolean",
+      "description": "Email verified",
+      "example": false
+    },
+    "email": {
+      "type": "string",
+      "description": "Email",
+      "example": "johndoe@gmail.com"
+    },
+    "city": {
+      "type": "string",
+      "description": "City",
+      "example": "Lekki"
+    },
+    "citizenship": {
+      "type": "string",
+      "description": "Citizenship",
+      "example": "Nigeria"
+    },
+    "carrot_integration_status": {
+      "type": "string",
+      "description": "Carrot integration status for user",
+      "example": "not_available",
+      "enum": [
+        "not_available",
+        "available",
+        "authorized"
+      ]
+    },
+    "age": {
+      "type": "integer",
+      "description": "Age",
+      "example": 96
+    },
+    "account_restriction": {
+      "title": "User restriction details",
+      "type": "object",
+      "properties": {
+        "restricted": {
+          "type": "boolean",
+          "description": "true if account is restricted, false if not",
+          "example": false
+        },
+        "reason": {
+          "type": "string",
+          "description": "reason of account restriction",
+          "example": "Account is under review"
+        }
+      }
+    },
+    "account_number": {
+      "type": "string",
+      "description": "Account number",
+      "example": "84861889"
+    }
+  }
+}

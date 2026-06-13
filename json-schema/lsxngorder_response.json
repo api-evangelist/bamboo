@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.investbamboo.com/schemas/lsxngorder_response",
+  "title": "Order response",
+  "required": [
+    "order_id"
+  ],
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "description": "Order ID to fetch status by REST",
+      "example": "BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2"
+    }
+  }
+}
