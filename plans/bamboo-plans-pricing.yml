@@ -1,0 +1,52 @@
+name: Bamboo Invest Plans and Pricing
+description: Bamboo Invest operates as a consumer investment platform and B2B API provider for African fintech companies. Consumer fees apply per transaction when users trade US or Nigerian stocks. API access for fintech partners is available via direct engagement with the Bamboo team.
+url: https://faq.investbamboo.com/en/collections/1988034-fees
+created: '2026-06-13'
+modified: '2026-06-13'
+plans:
+  - name: Consumer - US Stocks
+    description: Standard retail investor access to US-listed stocks and ETFs through the Bamboo mobile app.
+    url: https://faq.investbamboo.com/en/articles/3429617-fees-charges-us-stocks
+    pricing:
+      - description: Commission on buy or sell transactions for US stocks
+        type: Per Transaction
+        value: '1.5%'
+        unit: per trade
+        minimum: '$1.00'
+      - description: Minimum investment amount
+        type: Threshold
+        value: '$1.00'
+        unit: per order
+    features:
+      - Fractional shares (as low as $1 per investment)
+      - Access to US-listed stocks and ETFs
+      - Portfolio tracking and performance analytics
+      - Dollar-denominated accounts
+      - Deposit and withdrawal support
+  - name: Consumer - Nigerian Stocks (NGX)
+    description: Access to Nigerian Exchange (NGX) listed securities through the Bamboo platform.
+    url: https://faq.investbamboo.com/en/collections/1988034-fees
+    pricing:
+      - description: Commission and regulatory fees on NGX trades
+        type: Per Transaction
+        note: Fees include SEC, CSCS, and NGX regulatory charges in addition to platform commission
+    features:
+      - Access to Nigerian Exchange (NGX) listed securities
+      - NGX brokerage account creation
+      - Portfolio management for Nigerian stocks
+      - Eurobonds and Treasury Bills access
+  - name: API Partner Program
+    description: B2B integration tier for fintech companies and financial services platforms seeking to embed investment capabilities through the Bamboo API. Available by contacting Bamboo directly.
+    url: https://docs.investbamboo.com/
+    pricing:
+      - description: Partner pricing is negotiated directly with Bamboo
+        type: Contact
+        note: Contact Bamboo via docs.investbamboo.com for partner API access and commercial terms
+    features:
+      - User profile and brokerage account management
+      - Portfolio retrieval and tracking
+      - Stock search and discovery
+      - Money movement (deposits and withdrawals)
+      - Fractional stock trading
+      - Webhook-based event notifications
+      - KYC/identity verification integration

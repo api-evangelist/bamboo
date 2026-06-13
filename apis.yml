@@ -1,0 +1,62 @@
+aid: bamboo
+name: Bamboo Invest
+description: Bamboo is an African investment platform providing REST APIs for fractional stock investing, dollar investments, portfolio management, and access to US and Nigerian capital markets. The APIs enable fintech partners to integrate brokerage account creation, money movement, stock trading, and portfolio tracking into their own financial services applications.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/bamboo/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Investments
+  - Stocks
+  - Fractional Shares
+  - Africa
+  - Nigeria
+  - Portfolio Management
+  - Brokerage
+  - Fintech
+apis:
+  - name: Bamboo Investment API
+    description: REST API providing access to investment profiles, brokerage account management, portfolio tracking, stock search, money movement (deposits and withdrawals), and fractional stock trading on US and Nigerian capital markets.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.investbamboo.com/
+    baseURL: https://api.investbamboo.com
+    tags:
+      - Investments
+      - Stocks
+      - Portfolio
+      - Brokerage
+      - Fractional Shares
+      - Nigeria
+      - US Markets
+    properties:
+      - type: Documentation
+        url: https://docs.investbamboo.com/
+      - type: OpenAPI
+        url: https://docs.investbamboo.com/api/
+common:
+  - type: Website
+    url: https://investbamboo.com/
+  - type: Documentation
+    url: https://docs.investbamboo.com/
+  - type: GitHubOrg
+    url: https://github.com/investbamboo
+  - type: LinkedIn
+    url: https://ng.linkedin.com/company/investbamboo
+  - type: Blog
+    url: https://learn.investbamboo.com/
+  - type: Pricing
+    url: https://faq.investbamboo.com/en/collections/1988034-fees
+  - type: StatusPage
+    url: https://status.investbamboo.com/
+  - type: X
+    url: https://twitter.com/investbamboo
+  - type: Plans
+    url: plans/bamboo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/bamboo-rate-limits.yml
+  - type: FinOps
+    url: finops/bamboo-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

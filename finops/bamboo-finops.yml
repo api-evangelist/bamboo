@@ -1,0 +1,45 @@
+name: Bamboo Invest FinOps
+description: Financial operations guidance for teams integrating with the Bamboo Invest API. Covers cost structure, transaction fee management, currency considerations, and budgeting for African investment platform integrations.
+url: https://docs.investbamboo.com/
+created: '2026-06-13'
+modified: '2026-06-13'
+costDrivers:
+  - name: US Stock Transaction Commissions
+    description: Every buy or sell order on US markets incurs a 1.5% commission with a $1 minimum. In high-volume integrations, this cost is borne by end users but should be surfaced transparently in the partner UX.
+    type: Per-Transaction Fee
+    rate: '1.5%'
+    minimum: '$1.00'
+    paidBy: End User
+  - name: Nigerian Exchange (NGX) Regulatory Fees
+    description: NGX trades carry multi-layered regulatory fees from the SEC, CSCS, and NGX itself in addition to platform commissions. Partners should account for these in transaction cost disclosures.
+    type: Regulatory + Commission
+    paidBy: End User
+    note: Exact NGX fee breakdown available at faq.investbamboo.com/en/collections/1988034-fees
+  - name: API Partner Fees
+    description: B2B API access fees are negotiated bilaterally with Bamboo. No public pricing tier exists; cost structure depends on integration scope, user volume, and markets accessed.
+    type: Negotiated / Contract
+    paidBy: API Partner
+    url: https://docs.investbamboo.com/
+currencies:
+  - name: USD (US Dollar)
+    description: Primary currency for US market investments and dollar-denominated accounts. Users fund accounts in USD.
+    scope: US Stocks, ETFs, Dollar Investments
+  - name: NGN (Nigerian Naira)
+    description: Used for Nigerian Exchange (NGX) stock investments, Treasury Bills, and Naira-denominated savings products.
+    scope: Nigerian Stocks, Local Fixed Income
+budgetingGuidance:
+  - category: Transaction Volume Forecasting
+    guidance: Model expected per-user trade frequency to estimate aggregate commission costs. At 1.5% per trade, a user making 10 trades of $100 each incurs $15 in commissions per cycle.
+  - category: Minimum Investment Floor
+    guidance: The $1 minimum investment and $1 minimum commission floor means very small transactions are proportionally more expensive. Design UX flows to guide users toward optimal trade sizes.
+  - category: Currency Risk
+    guidance: USD/NGN exchange rate fluctuations affect Naira-equivalent values for users investing in dollar-denominated assets. Partners should display real-time FX rates and disclaim currency risk.
+  - category: API Integration Budget
+    guidance: Factor in bilateral contract fees for Bamboo API access. Budget for ongoing maintenance as Bamboo's API evolves, particularly around KYC, settlement, and regulatory compliance updates.
+  - category: Regulatory Compliance Costs
+    guidance: SEC (Nigeria), FINRA/SIPC (US), and NGX compliance requirements may impose operational overhead on partner platforms embedding Bamboo APIs. Consult legal counsel for jurisdiction-specific obligations.
+contacts:
+  - name: Bamboo Developer Documentation
+    url: https://docs.investbamboo.com/
+  - name: Bamboo Fees Help Center
+    url: https://faq.investbamboo.com/en/collections/1988034-fees

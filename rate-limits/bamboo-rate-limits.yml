@@ -1,0 +1,26 @@
+name: Bamboo Invest API Rate Limits
+description: Rate limit information for the Bamboo Invest REST API. Bamboo's public documentation does not publish explicit rate limit thresholds. Limits are enforced at the API gateway layer and are communicated to API partners directly. The following reflects known patterns based on available documentation and standard fintech API practices.
+url: https://docs.investbamboo.com/api/
+created: '2026-06-13'
+modified: '2026-06-13'
+rateLimits:
+  - name: General API Rate Limit
+    description: Requests to all Bamboo API endpoints are subject to rate limiting. Exact thresholds are not publicly documented and are communicated to API integration partners directly.
+    scope: Account / API Key
+    enforcement: HTTP 429 Too Many Requests response
+    note: Contact Bamboo at docs.investbamboo.com to obtain specific rate limit quotas for your integration tier.
+  - name: Authentication Token
+    description: All API requests must include a valid access token. Tokens are scoped per user context and must be included in request headers for every call.
+    type: Bearer Token
+    headerName: Authorization
+    format: Bearer <access_token>
+    note: Access tokens have an expiry and must be refreshed as needed.
+  - name: Webhook Verification
+    description: Bamboo validates deposit and withdrawal events via webhook callbacks. Each webhook event triggers a verification call from Bamboo to the partner endpoint to confirm the transaction before updating the user's account.
+    type: Webhook
+    direction: Inbound (Bamboo to Partner)
+    mechanism: Webhook verification endpoint provided by the API partner
+notes:
+  - Bamboo does not publicly document numeric rate limits (requests per minute/hour). Partners should reach out through the developer documentation portal for specific SLA and quota details.
+  - Rate limit headers (e.g., X-RateLimit-Remaining) may be included in API responses; check response headers in your integration.
+  - Settlement and money movement endpoints may have additional restrictions due to regulatory and brokerage compliance requirements.
