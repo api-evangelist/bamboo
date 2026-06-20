@@ -1,7 +1,7 @@
 aid: bamboo
 name: Bamboo Invest
 description: Bamboo is an African investment platform providing REST APIs for fractional stock investing, dollar investments, portfolio management, and access to US and Nigerian capital markets. The APIs enable fintech partners to integrate brokerage account creation, money movement, stock trading, and portfolio tracking into their own financial services applications.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bamboo/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -18,7 +18,7 @@ tags:
 apis:
   - name: Bamboo Investment API
     description: REST API providing access to investment profiles, brokerage account management, portfolio tracking, stock search, money movement (deposits and withdrawals), and fractional stock trading on US and Nigerian capital markets.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.investbamboo.com/
     baseURL: https://api.investbamboo.com
     tags:
