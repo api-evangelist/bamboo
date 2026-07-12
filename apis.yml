@@ -35,6 +35,8 @@ apis:
       - type: OpenAPI
         url: https://docs.investbamboo.com/api/
 common:
+  - type: DomainSecurity
+    url: security/bamboo-domain-security.yml
   - type: Website
     url: https://investbamboo.com/
   - type: Documentation
