@@ -1,0 +1,236 @@
+openapi: 3.0.1
+info:
+  title: Bamboo Account Management NG Stock Portfolio API
+  version: ''
+  description: "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n"
+servers:
+- url: https://powered-by-bamboo-sandbox.investbamboo.com
+tags:
+- name: NG Stock Portfolio
+  description: 'This section provides all the information a tenant needs to know about a user''s investment portfolio values and general  user performance.
+
+    '
+paths:
+  /api/lsx/ng/portfolio/breakdown:
+    get:
+      tags:
+      - NG Stock Portfolio
+      summary: Fetch User Portfolio
+      description: 'This endpoint returns the information of a user''s equity value, cash available for investing, and the user''s stock position in the  Nigerian Market.
+
+        '
+      parameters:
+      - name: content-type
+        in: header
+        description: Acceptable content type
+        example: application/json
+        required: true
+        schema:
+          type: string
+      - name: accept-language
+        in: header
+        description: Acceptable language; 'en' for English
+        example: en
+        required: true
+        schema:
+          type: string
+      - name: x-user-id
+        in: header
+        description: Required for user authentication
+        required: true
+        schema:
+          type: string
+      - name: x-subject-type
+        in: header
+        description: For user request -> 'tenant'.
+        required: true
+        schema:
+          type: string
+      - name: currency
+        in: header
+        description: NGN - to get prices in Naira
+        schema:
+          type: string
+      - name: x-client-token
+        in: header
+        description: API consumer token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: NGX Portfolio response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lsxngportfolio_breakdown_response'
+        '401':
+          description: Token have expired or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '422':
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/lsx/ng/user_cash_balance/{currency}:
+    get:
+      tags:
+      - NG Stock Portfolio
+      summary: Fetch User Cash Balance
+      description: "This endpoint returns data about the user's cash balance. \n"
+      parameters:
+      - name: content-type
+        in: header
+        description: Acceptable content type
+        example: application/json
+        required: true
+        schema:
+          type: string
+      - name: accept-language
+        in: header
+        description: Acceptable language; 'en' for English
+        example: en
+        required: true
+        schema:
+          type: string
+      - name: x-user-id
+        in: header
+        description: Required for user authentication
+        required: true
+        schema:
+          type: string
+      - name: x-subject-type
+        in: header
+        description: For user request -> 'tenant'.
+        required: true
+        schema:
+          type: string
+      - name: x-client-token
+        in: header
+        description: API consumer token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Portfolio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lsxnguser_cash_balance_response'
+        '401':
+          description: Token have expired or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '422':
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    lsxngportfolio_breakdown_response:
+      title: NGX Portfolio response
+      type: object
+      properties:
+        withdrawable_cash:
+          type: number
+          description: Maximum amount that can be withdrawn
+          example: 0
+        total_user_equity:
+          type: number
+          description: total_user_equity
+          example: 0
+        total_percent_change:
+          type: number
+          description: Total portfolio change
+          example: 0
+        total_return:
+          type: number
+          description: Stock total return
+          example: 0
+        total_cost:
+          type: number
+          description: Stock total return
+          example: 0
+        currency:
+          type: string
+          description: Withdraw currency
+          example: NGN
+        change:
+          type: integer
+          description: Change
+          example: 33.4
+        available_to_invest:
+          type: number
+          description: Buying power
+          example: 0
+    ErrorResponse:
+      title: Error response
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error response for external or internal errors not connected to data
+          example: Message why request didn't succeed
+      description: Error response for external or internal errors not connected to data
+    Unauthorized:
+      title: Unauthorized response
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Unauthorized/Invalid Token/Token has expired
+          example: Invalid client token supplied.
+      description: Token is invalid or have expired
+    lsxnguser_cash_balance_response:
+      title: User's Cash Balance
+      required:
+      - withdrawal_cash
+      type: object
+      properties:
+        currency:
+          type: string
+          description: Currency
+          example: NGN
+        balance:
+          type: number
+          description: User current cash balance in provided currency
+          example: 5661255.97
+x-logo:
+  url: bamboo-logo.png
+  altText: bamboo logo
+x-tagGroups:
+- name: Authentication
+  tags:
+  - Authentication
+  - Account Management
+- name: Money Movement
+  tags:
+  - Overview
+  - Deposits
+  - Withdrawals
+- name: US Brokerage Services
+  tags:
+  - Portfolio Reporting
+  - US Securities
+  - US Stock Trading
+  - US Stock Events
+- name: Utilities
+  tags:
+  - Dictionaries
+  - Market Activity
+  - Exchange Rate
+  - Featured Themes
+  - Financial Documents

@@ -1,0 +1,175 @@
+openapi: 3.0.1
+info:
+  title: Bamboo Account Management Lsx API
+  version: ''
+  description: "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n"
+servers:
+- url: https://powered-by-bamboo-sandbox.investbamboo.com
+tags:
+- name: Lsx
+paths:
+  /api/lsx/ng/dictionary:
+    get:
+      tags:
+      - Lsx
+      summary: NGX Dictionary
+      description: 'This endpoint provides the acceptable data for fetching the format for the states and LGAs required during account creation. This info is needed to enable users trade in the NG market.
+
+        '
+      responses:
+        '200':
+          description: Dictionary response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lsxngdictionary'
+        '401':
+          description: Token have expired or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFound'
+        '422':
+          description: Incomplete Parameters
+          content:
+            application/json:
+              example:
+                message: 'Citizenship can''t be blank,
+
+                  Country code can''t be blank'
+              schema:
+                $ref: '#/components/schemas/ErrorChangesetResponse'
+components:
+  schemas:
+    Unauthorized:
+      title: Unauthorized response
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Unauthorized/Invalid Token/Token has expired
+          example: Invalid client token supplied.
+      description: Token is invalid or have expired
+    lsxngdictionary:
+      title: NGX Dictionary
+      type: object
+      properties:
+        states_and_lgas:
+          type: array
+          description: Arary of object with states_and_lgas for NG account creation
+          example:
+          - state: Adamawa
+            lgas:
+            - Demsa
+            - Fufure
+            - Ganye
+            - Gayuk
+            - Gombi
+            - Grie
+            - Hong
+            - Jada
+            - Larmurde
+            - Madagali
+            - Maiha
+            - Mayo Belwa
+            - Michika
+            - Mubi North
+            - Mubi South
+            - Numan
+            - Shelleng
+            - Song
+            - Toungo
+            - Yola North
+            - Yola South
+          - state: Lagos
+            lgas:
+            - Agege
+            - Ajeromi-Ifelodun
+            - Alimosho
+            - Amuwo-Odofin
+            - Badagry
+            - Apapa
+            - Epe
+            - Eti Osa
+            - Ibeju-Lekki
+            - Ifako-Ijaiye
+            - Ikeja
+            - Ikorodu
+            - Kosofe
+            - Lagos Island
+            - Mushin
+            - Lagos Mainland
+            - Ojo
+            - Oshodi-Isolo
+            - Shomolu
+            - Surulere Lagos State
+          - state: Federal Capital Territory
+            lgas:
+            - Abaji
+            - Bwari
+            - Gwagwalada
+            - Kuje
+            - Kwali
+            - Municipal Area Council
+          - etc: null
+    ErrorChangesetResponse:
+      title: Error changeset response
+      required:
+      - errors
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message why request didn't succeed
+          example: Invalid credentials
+        errors:
+          type: object
+          properties: {}
+          description: Map of errors
+      description: Error response for request which manipulates data
+    ResourceNotFound:
+      title: Resource not found
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Resource not found (an incorrect url may have been used)
+          example: Resource Not Found
+      description: Error response for when the resource is not found within our data.
+x-logo:
+  url: bamboo-logo.png
+  altText: bamboo logo
+x-tagGroups:
+- name: Authentication
+  tags:
+  - Authentication
+  - Account Management
+- name: Money Movement
+  tags:
+  - Overview
+  - Deposits
+  - Withdrawals
+- name: US Brokerage Services
+  tags:
+  - Portfolio Reporting
+  - US Securities
+  - US Stock Trading
+  - US Stock Events
+- name: Utilities
+  tags:
+  - Dictionaries
+  - Market Activity
+  - Exchange Rate
+  - Featured Themes
+  - Financial Documents
