@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Bamboo Account Management NG Securities API
-  version: ''
+  version: "1.0"
   description: "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n"
 servers:
 - url: https://powered-by-bamboo-sandbox.investbamboo.com
