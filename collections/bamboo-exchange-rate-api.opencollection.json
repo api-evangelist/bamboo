@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Exchange Rate API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Exchange Rate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Exchange Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/exchange_rate",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Real-time exchange rate data enables accurate currency conversions for deposit, withdrawals and trade transactions.\n\nExchange rate data provides buy rates for converting USD to local currency when displaying prices, sell rates for converting local currency to USD when processing deposits, real-time updates with rates refreshed throughout the trading day, and support for multiple currencies including NGN, GHS, and ZAR.\n\n**Usage Guidelines:** \n- If deposit is being made in local currency, use the "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

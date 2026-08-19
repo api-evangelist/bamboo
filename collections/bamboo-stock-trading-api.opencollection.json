@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Stock Trading API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stock Trading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Place An Order on the NGX Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/order",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If the user is eligible to make trades, this endpoint is used to place an order using the result of the calculated order  endpoint. Please note: Tenants are to place just MARKET order type.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1081 @@
+{
+  "item": [
+    {
+      "id": "a9922fd5-e3c5-4ddd-8f6d-3efd50d45084",
+      "name": "Deposits",
+      "description": {
+        "content": "Deposits fund user brokerage accounts for stock purchases. All deposits require verification through your webhook endpoint before funds are credited.\n\nOn the <a href=\"#tag/US-Stock-Portfolio/operation/Web.Api.PortfolioController.portfolio\">Portfolio endpoint</a>, different cash fields serve specific purposes as explained below:\n<table>\n  <thead>\n    <tr>\n      <th>Field</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>cash</th>\n      <td>Total cash in the user's brokerage account available for investment (buying power). Includes deposits, stock sales, cancelled and rejected trades.</td>\n    </tr>\n    <tr>\n      <th>unsettled_cash</th>\n      <td>Funds from stock sales pending settlement; not yet available for withdrawal.</td>\n    </tr>\n    <tr>\n      <th>withdrawal_cash</th>\n      <td>Settled funds available for withdrawal from the user brokerage account.</td>\n    </tr>\n    <tr>\n      <th>actual_value</th>\n      <td>Total portfolio value, calculated as sum of US stock holdings, unsettled_cash, and cash balance.</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Your `withdrawal_cash` and `unsettled_cash` are components within your total cash balance. But those fields are used to specifically distinguish between cash settled/unsettled for withdrawal.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8d91ed8-9329-40b1-b021-5e1d203b6016",
+          "name": "Create Deposit",
+          "request": {
+            "name": "Create Deposit",
+            "description": {
+              "content": "To make a deposit, you send a notification request with the necessary details to credit the user's brokerage account. Upon receiving the request, a record is created in our system and verification checks are performed to confirm the deposit source.\n\nVerification is carried out using an endpoint you provide to our integration team during account setup. Once the deposit is verified, the specified amount is credited to the user's brokerage account, and deposit status events are sent via Google Pub/Sub. (see details under [events section](#section/Deposit-Event))\n\n### Verification Endpoint Requirements:\n- **Request Type:** GET\n- **URL Pattern:** THE_URL/deposit/status/YOUR_UNIQUE_REFERENCE\n- **Authentication:** Static hash in headers (share this hash with Bamboo along with your verification URL)\n\n#### Example JSON Webhook Response:\n    {\n      \"data\": {\n        \"status\": \"settled\", // or \"failed\"\n        \"currency\": \"NGN\",\n        \"amount\": 30000.00\n      },\n      \"status\": \"settled\" // or \"failed\"  \n    }\n**NB:** You can also  monitor all deposit activity through the <a href=\"http://pbb.investbamboo.com/\"> PBB Dashboard</a>.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bamboo",
+                "webhook"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount_paid\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"transaction_date\": \"<string>\",\n  \"market\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "976c73ba-7cc8-4a2a-be50-33ac6fb36ad7",
+              "name": "200 OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bamboo",
+                    "webhook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount_paid\": 5000,\n  \"currency\": \"NGN\",\n  \"provider\": \"invest-bamboo\",\n  \"reference\": \"INVcal2VzeVGJkCXNx\",\n  \"phone_number\": \"+2348036477166\",\n  \"transaction_date\": \"2022-02-02\",\n  \"market\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82847b69-ffc4-4628-8aaf-58a643b492b6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bamboo",
+                    "webhook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount_paid\": 5000,\n  \"currency\": \"NGN\",\n  \"provider\": \"invest-bamboo\",\n  \"reference\": \"INVcal2VzeVGJkCXNx\",\n  \"phone_number\": \"+2348036477166\",\n  \"transaction_date\": \"2022-02-02\",\n  \"market\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Bad request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccfc0e41-fd60-429e-9363-35ba274c0f20",
+              "name": "Incomplete Parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bamboo",
+                    "webhook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount_paid\": 5000,\n  \"currency\": \"NGN\",\n  \"provider\": \"invest-bamboo\",\n  \"reference\": \"INVcal2VzeVGJkCXNx\",\n  \"phone_number\": \"+2348036477166\",\n  \"transaction_date\": \"2022-02-02\",\n  \"market\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Error Message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d265007a-0256-485e-9b76-af00ee0db609",
+          "name": "Fetch All Deposits",
+          "request": {
+            "name": "Fetch All Deposits",
+            "description": {
+              "content": "Paginated list of all user deposits with date range filtering and status information\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "deposit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of requested results default=20"
+                },
+                {
+                  "disabled": false,
+                  "key": "next_token",
+                  "value": "<integer>",
+                  "description": "Next token for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "Unix datetime stamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "Unix datetime stamp"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdb2c04c-72ec-4cea-afb3-1a405d5c7860",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_token\": 10,\n  \"deposits\": [\n    {\n      \"user_surname\": \"Doe\",\n      \"user_name\": \"John\",\n      \"transaction_id\": \"INVcal2V2eVGJkCXNx\",\n      \"status\": \"pending\",\n      \"phone_number\": \"+2348033741268\",\n      \"id\": 5804,\n      \"email\": \"johndoe@gmail.com\",\n      \"created_at\": 6392,\n      \"api_consumer_name\": \"invest-bamboo\",\n      \"amount\": \"string\"\n    },\n    {\n      \"user_surname\": \"Doe\",\n      \"user_name\": \"John\",\n      \"transaction_id\": \"INVcal2V2eVGJkCXNx\",\n      \"status\": \"pending\",\n      \"phone_number\": \"+2348033741268\",\n      \"id\": 5804,\n      \"email\": \"johndoe@gmail.com\",\n      \"created_at\": 770,\n      \"api_consumer_name\": \"invest-bamboo\",\n      \"amount\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52f321d7-85c4-45c3-96e9-40dcbf7e7fee",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f7efab6-a0be-4dfe-8f22-c35dccd86c80",
+          "name": "Fetch User-Specific Deposits",
+          "request": {
+            "name": "Fetch User-Specific Deposits",
+            "description": {
+              "content": "Individual user deposits for performance tracking",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "deposit",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of requested results default=20"
+                },
+                {
+                  "disabled": false,
+                  "key": "next_token",
+                  "value": "<integer>",
+                  "description": "Next token for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "Unix datetime stamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "Unix datetime stamp"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9eec7d17-bde9-409f-97e4-1dfdf465cedb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_token\": 10,\n  \"deposits\": [\n    {\n      \"user_surname\": \"Doe\",\n      \"user_name\": \"John\",\n      \"transaction_id\": \"INVcal2V2eVGJkCXNx\",\n      \"status\": \"pending\",\n      \"phone_number\": \"+2348033741268\",\n      \"id\": 5804,\n      \"email\": \"johndoe@gmail.com\",\n      \"created_at\": 6359,\n      \"api_consumer_name\": \"invest-bamboo\",\n      \"amount\": \"string\"\n    },\n    {\n      \"user_surname\": \"Doe\",\n      \"user_name\": \"John\",\n      \"transaction_id\": \"INVcal2V2eVGJkCXNx\",\n      \"status\": \"pending\",\n      \"phone_number\": \"+2348033741268\",\n      \"id\": 5804,\n      \"email\": \"johndoe@gmail.com\",\n      \"created_at\": 8269,\n      \"api_consumer_name\": \"invest-bamboo\",\n      \"amount\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afeec7b8-0c87-49e9-8a2a-6fe0280b7705",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dea9a37-1d25-4c90-a894-a6c1f2be9f10",
+          "name": "Deposit Status Check",
+          "request": {
+            "name": "Deposit Status Check",
+            "description": {
+              "content": "Real-time status updates for specific deposit transactions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "deposit",
+                "status",
+                ":txref"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f7d7bfd-bb6e-4a47-b01b-28ce0a0dc422",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit",
+                    "status",
+                    ":txref"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 8722,\n  \"currency\": \"USD\",\n  \"status\": \"Settlemented\",\n  \"txref\": \"BIO63894410548a7f170d8159978UIO\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ffeb2a2-ad41-4e03-adb2-a45ee8de6ca0",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "deposit",
+                    "status",
+                    ":txref"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d78da4e8-a3da-4bcd-bb9b-ac5d5dcd5a53",
+    "name": "Bamboo Account Management Deposits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

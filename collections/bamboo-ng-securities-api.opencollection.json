@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management NG Securities API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NG Securities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch List of All Stocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/stocks",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested results. (Default = 20)"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query",
+                "description": "Next token for pagination"
+              },
+              {
+                "name": "search_term",
+                "value": "",
+                "type": "query",
+                "description": "Stock symbol. E.g. `ZENITHBANK`"
+              }
+            ]
+          },
+          "docs": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo.\n"
+        },
+        {
+          "info": {
+            "name": "Fetch Stock by Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/stocks/:symbol",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Stock Symbol"
+              }
+            ]
+          },
+          "docs": "This endpoint returns all the details of a specified stock. This is used to offer a user more insight into a specific  stock option.\n"
+        },
+        {
+          "info": {
+            "name": "Fetch List of All Stocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/my_stocks",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

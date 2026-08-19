@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management NG Withdrawals API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NG Withdrawals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate Withdrawal Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/withdraw",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint is used to withdraw from users' cash balances.\n"
+        },
+        {
+          "info": {
+            "name": "Fetch Withdrawal by Reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/withdraw/:reference",
+            "headers": [
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This is used to fetch a withdrawal by its specific transaction reference number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1730 @@
+{
+  "item": [
+    {
+      "id": "3fbdc05b-36b1-4acf-8ae9-533666223900",
+      "name": "NG Stock Trading",
+      "description": {
+        "content": "The stock trading section details all the endpoints needed to calculate and make trade orders for all NG stock available  on Bamboo. Please note that trade charges are applicable and should be agreed upon with the business team. During system setup,  the agreed charges would be applied by the integration team. \n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c285e247-fb13-4ca0-b286-3018b87e912b",
+          "name": "Calculate Order",
+          "request": {
+            "name": "Calculate Order",
+            "description": {
+              "content": "This endpoint is used to calculate an order request to help determine if a user can proceed with their desired BUY or SELL order.  Please note that the only order type you can place here is a Market Order.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "order",
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "NGN - to order in Naira",
+                "key": "currency",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"MARKET\",\n  \"symbol\": \"ZENITHBANK\",\n  \"side\": \"BUY\",\n  \"quantity\": 10,\n  \"price\": 10,\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "339eea5c-4082-4b45-99cf-ef02c9fd6c8b",
+              "name": "Calculated order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"MARKET\",\n  \"symbol\": \"ZENITHBANK\",\n  \"side\": \"BUY\",\n  \"quantity\": 10,\n  \"price\": 10,\n  \"currency\": \"NGN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currency\": \"NGN\",\n  \"currency_symbol\": \"₦\",\n  \"fee\": 3907,\n  \"order_price\": 331.5,\n  \"price_per_share\": 33.15,\n  \"quantity\": 10,\n  \"side\": \"BUY\",\n  \"symbol\": \"ZENITHBANK\",\n  \"total_price\": 364.65,\n  \"type\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85cd095e-ba1a-4193-90a0-4a8146e5ccd5",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"MARKET\",\n  \"symbol\": \"ZENITHBANK\",\n  \"side\": \"BUY\",\n  \"quantity\": 10,\n  \"price\": 10,\n  \"currency\": \"NGN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e765733-8aa4-45ee-8b10-2e8a66f4f653",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"MARKET\",\n  \"symbol\": \"ZENITHBANK\",\n  \"side\": \"BUY\",\n  \"quantity\": 10,\n  \"price\": 10,\n  \"currency\": \"NGN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "354ba262-80fd-4230-950f-a3ca8f63a3dd",
+          "name": "Fetch Order Details by ID",
+          "request": {
+            "name": "Fetch Order Details by ID",
+            "description": {
+              "content": "This endpoint is used to fetch the details of an order. \n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "order",
+                ":order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order_id",
+                  "description": "(Required) Order id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c406e415-969c-497b-8ed1-29d06e2aef93",
+              "name": "Order status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\",\n  \"dollar_fee\": 0.42,\n  \"dollar_price_per_share\": 0.42,\n  \"execution_history\": {\n    \"timestamp\": 2705.074889824719,\n    \"quantity\": 0,\n    \"idempotency_key\": 0,\n    \"amount\": 0\n  },\n  \"filled_quantity\": 0,\n  \"id\": \"BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2\",\n  \"logo\": \"string\",\n  \"naira_fee\": 33.15,\n  \"naira_order_price\": 364.65,\n  \"naira_price_per_share\": 0.42,\n  \"price\": 33.15,\n  \"quantity\": 10,\n  \"side\": \"BUY\",\n  \"status\": \"Successful\",\n  \"symbol\": \"DDD\",\n  \"type\": \"MARKET\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87393f6e-c887-4a37-a521-b5f79dcc3e14",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80d6f487-dc3a-4cce-b560-9d964e6c9f4a",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fafee0b6-cecd-48a1-91bf-8ce5753e1b9f",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d23b1ae-c074-46a3-9ae5-dbc21fc0d3f7",
+          "name": "Fetch Order Status by ID",
+          "request": {
+            "name": "Fetch Order Status by ID",
+            "description": {
+              "content": "This endpoint is used to fetch the status of an order. \n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "order",
+                ":order_id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order_id",
+                  "description": "(Required) Order id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c77d8a9a-9b2b-402a-bd3b-af56370ba641",
+              "name": "Order status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dollar_fee\": 0.42,\n  \"dollar_price\": 0.42,\n  \"id\": \"BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2\",\n  \"naira_fee\": 33.15,\n  \"naira_price\": 364.65,\n  \"price\": 33.15,\n  \"quantity\": 10,\n  \"side\": \"BUY\",\n  \"status\": \"Successful\",\n  \"symbol\": \"DDD\",\n  \"type\": \"MARKET\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be1c8e74-022b-4355-b6fb-985f70916f23",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d918a01b-88be-46df-b7a6-5aa525694aa7",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90c1a21c-d02a-4bff-af23-ee423fb4630f",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "272f4e59-d2b0-4308-be23-c00b53057950",
+          "name": "Fetch Pending Orders",
+          "request": {
+            "name": "Fetch Pending Orders",
+            "description": {
+              "content": "This endpoint is used to fetch a list of pending orders. \n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "pending_orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order_id",
+                  "description": "(Required) Order id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5634ea02-55bd-43e4-ab2c-a95fd67d3310",
+              "name": "Order status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "pending_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pending_orders\": [\n    {\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\",\n      \"broker_code\": \"LABB\",\n      \"created_at\": 361,\n      \"dollar_fee\": 0.42,\n      \"dollar_price\": 0.42,\n      \"id\": \"BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2\",\n      \"logo\": \"string\",\n      \"naira_fee\": 33.15,\n      \"naira_price\": 364.65,\n      \"order_value\": \"string\",\n      \"price\": 8,\n      \"price_per_share\": 8.27,\n      \"quantity\": 10,\n      \"side\": \"BUY\",\n      \"status\": \"Successful\",\n      \"symbol\": \"DDD\",\n      \"type\": \"MARKET\"\n    },\n    {\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\",\n      \"broker_code\": \"LABB\",\n      \"created_at\": 6357,\n      \"dollar_fee\": 0.42,\n      \"dollar_price\": 0.42,\n      \"id\": \"BB.LAMB_21046bcd-0400-4ac1-a6a1-91c439455ef2\",\n      \"logo\": \"string\",\n      \"naira_fee\": 33.15,\n      \"naira_price\": 364.65,\n      \"order_value\": \"string\",\n      \"price\": 8,\n      \"price_per_share\": 8.27,\n      \"quantity\": 10,\n      \"side\": \"BUY\",\n      \"status\": \"Successful\",\n      \"symbol\": \"DDD\",\n      \"type\": \"MARKET\"\n    }\n  ],\n  \"currency_symbol\": \"₦\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59767144-2cbd-4932-9c07-bded20a98a74",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "pending_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95311d4e-c21f-4819-abe1-3d923b93a0f1",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "pending_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8ad1bcd-ec83-4c68-ad73-fb3ec045bdfc",
+          "name": "Cancel An Order on the NGX",
+          "request": {
+            "name": "Cancel An Order on the NGX",
+            "description": {
+              "content": "This endpoint is used to cancel an order. Kindly note that only pending orders can be cancelled.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "order",
+                ":order_id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "order_id",
+                  "description": "(Required) Order id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2140b895-66b9-49cb-8620-1538366a164f",
+              "name": "Cancel an order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Order Cancelled\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3d3145b-7bf3-46d7-ae80-36fe84e7f5ca",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02d294fa-35ff-4456-b273-7b68c3e2bda8",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "order",
+                    ":order_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "order_id",
+                      "description": "(Required) Order id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a868617b-c767-41a0-a5c7-50e7d8df0459",
+    "name": "Bamboo Account Management NG Stock Trading API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "item": [
+    {
+      "id": "d2d164b3-7bdc-4974-a407-fe94b44fa37d",
+      "name": "Exchange Rate",
+      "description": {
+        "content": "The exchange rate section provides you with an endpoint that fetches real-time exchange rates effortlessly, enabling  accurate currency conversions and financial calculations. \n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24880095-e906-4d4d-a25f-b5c5a7710690",
+          "name": "Fetch Exchange Rate",
+          "request": {
+            "name": "Fetch Exchange Rate",
+            "description": {
+              "content": "Real-time exchange rate data enables accurate currency conversions for deposit, withdrawals and trade transactions.\n\nExchange rate data provides buy rates for converting USD to local currency when displaying prices, sell rates for converting local currency to USD when processing deposits, real-time updates with rates refreshed throughout the trading day, and support for multiple currencies including NGN, GHS, and ZAR.\n\n**Usage Guidelines:** \n- If deposit is being made in local currency, use the sell rate for deposits.\n- Use the Buy rate for Withdrawals if withdrawal is being converted back to local currency.\n- Apply consistent rates across user sessions for pricing consistency\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "exchange_rate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba9a312c-9146-40f3-9f78-dcd4706aea03",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "exchange_rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exchange_rates\": [\n    {\n      \"buy_rate\": 805,\n      \"currency\": \"NGN\",\n      \"currency_symbol\": 1369.9401552313816,\n      \"flag_image\": \"string\",\n      \"id\": 2,\n      \"residence_country\": \"NGA\",\n      \"sell_rate\": 868\n    },\n    {\n      \"buy_rate\": 805,\n      \"currency\": \"NGN\",\n      \"currency_symbol\": 5513.2381359204965,\n      \"flag_image\": \"string\",\n      \"id\": 2,\n      \"residence_country\": \"NGA\",\n      \"sell_rate\": 868\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7685b27-e802-4fba-a933-a86e06f8f24a",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "exchange_rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d545e63a-bb09-4682-b570-4ed944cbc7d3",
+    "name": "Bamboo Account Management Exchange Rate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

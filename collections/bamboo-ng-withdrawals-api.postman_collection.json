@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "f82aca03-e526-4f5e-aa24-e94702fd5881",
+      "name": "NG Withdrawals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f6c511f-8487-430c-b47f-ee03fc5d3164",
+          "name": "Initiate Withdrawal Request",
+          "request": {
+            "name": "Initiate Withdrawal Request",
+            "description": {
+              "content": "This endpoint is used to withdraw from users' cash balances.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "withdraw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"txref\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cedaacd-f921-4c8a-92ca-7a31e5ff3f2d",
+              "name": "Withdraw created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1000,\n  \"currency\": \"NGN\",\n  \"txref\": \"INVKPxiJVc40BNaQBH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"withdraw_type\": 1000,\n  \"title\": \"NGN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba8a6ce3-ead3-4a58-b9fa-fc20c5ef734e",
+              "name": "Token has expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1000,\n  \"currency\": \"NGN\",\n  \"txref\": \"INVKPxiJVc40BNaQBH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52a6d501-3658-4bcc-bd39-ff795d45d20e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1000,\n  \"currency\": \"NGN\",\n  \"txref\": \"INVKPxiJVc40BNaQBH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7da6958d-559e-462d-840b-1d35ac36e2cf",
+              "name": "Incomplete Parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1000,\n  \"currency\": \"NGN\",\n  \"txref\": \"INVKPxiJVc40BNaQBH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Citizenship can't be blank,\\nCountry code can't be blank\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "736f4bc9-d0f1-4ff6-860a-66dc507e0da9",
+          "name": "Fetch Withdrawal by Reference",
+          "request": {
+            "name": "Fetch Withdrawal by Reference",
+            "description": {
+              "content": "This is used to fetch a withdrawal by its specific transaction reference number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "withdraw",
+                ":reference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da5cddbe-761e-46d7-bd51-2fa6aed0452a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"withdraw_type\": 1000,\n  \"title\": \"NGN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "746efedf-e0ac-48eb-895b-c4ebc0dc7f15",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aae77ad8-44e1-472d-8e5a-a0b4866c02fb",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c645bde7-eaf5-4960-92e8-b0b025b4485b",
+              "name": "Incomplete Parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "withdraw",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Citizenship can't be blank,\\nCountry code can't be blank\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8daf1843-9da9-44b9-ab1f-cc01e01a23dd",
+    "name": "Bamboo Account Management NG Withdrawals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

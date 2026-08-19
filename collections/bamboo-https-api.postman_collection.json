@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "07a602a6-12c2-4ed9-bb84-93054c29a5fc",
+      "name": "Https:",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c16348a-e265-4fd6-99ed-48e1d84c0871",
+          "name": "Supported Banks and Sort Codes for NGX Trades",
+          "request": {
+            "name": "Supported Banks and Sort Codes for NGX Trades",
+            "description": {
+              "content": "This endpoint provides a list of all supported banks and sort codes by the Nigerian Brokerage Commissions. The bank details  provided are used for sending users their dividends from companies they've traded with in the Nigerian market.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "{{baseUrl}}/https",
+              "path": [
+                ""
+              ],
+              "host": [
+                "cscs-banks",
+                "investbamboo",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "141caaae-c07a-4100-a774-35e0fa330ccb",
+              "name": "Dictionary response",
+              "originalRequest": {
+                "url": {
+                  "protocol": "{{baseUrl}}/https",
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "cscs-banks",
+                    "investbamboo",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cscs_banks\": [\n    {\n      \"name\": \"Access Bank Nigeria Plc\",\n      \"sort_code\": \"044\"\n    },\n    {\n      \"name\": \"Ecobank Nigeria\",\n      \"sort_code\": \"050\"\n    },\n    {\n      \"name\": \"Enterprise Bank Plc\",\n      \"sort_code\": 84\n    },\n    {\n      \"name\": \"Fidelity Bank Plc\",\n      \"sort_code\": \"070\"\n    },\n    {\n      \"name\": \"First Bank of Nigeria Plc\",\n      \"sort_code\": \"011\"\n    },\n    {\n      \"name\": \"First City Monument Bank\",\n      \"sort_code\": \"214\"\n    },\n    {\n      \"name\": \"Guaranty Trust Bank Plc\",\n      \"sort_code\": 58\n    },\n    {\n      \"name\": \"Heritage Banking Company Ltd\",\n      \"sort_code\": \"030\"\n    },\n    {\n      \"name\": \"Jaiz Bank\",\n      \"sort_code\": \"301\"\n    },\n    {\n      \"name\": \"Keystone Bank Ltd\",\n      \"sort_code\": 82\n    },\n    {\n      \"name\": \"Mainstreet Bank Plc\",\n      \"sort_code\": \"014\"\n    },\n    {\n      \"name\": \"Skye Bank Plc / Polaris Bank\",\n      \"sort_code\": \"076\"\n    },\n    {\n      \"name\": \"Stanbic IBTC Plc\",\n      \"sort_code\": \"221\"\n    },\n    {\n      \"name\": \"Sterling Bank Plc\",\n      \"sort_code\": \"232\"\n    },\n    {\n      \"name\": \"Union Bank Nigeria Plc\",\n      \"sort_code\": \"032\"\n    },\n    {\n      \"name\": \"United Bank for Africa Plc\",\n      \"sort_code\": \"033\"\n    },\n    {\n      \"name\": \"Unity Bank Plc\",\n      \"sort_code\": \"215\"\n    },\n    {\n      \"name\": \"WEMA Bank Plc\",\n      \"sort_code\": \"035\"\n    },\n    {\n      \"name\": \"Zenith Bank International\",\n      \"sort_code\": \"057\"\n    },\n    {\n      \"name\": \"Paralex Bank\",\n      \"sort_code\": \"104\"\n    },\n    {\n      \"name\": \"Lotus Bank Ltd\",\n      \"sort_code\": \"601\"\n    },\n    {\n      \"name\": \"Titan Trust Bank\",\n      \"sort_code\": \"102\"\n    },\n    {\n      \"name\": \"TAJ Bank\",\n      \"sort_code\": \"302\"\n    },\n    {\n      \"name\": \"Coronation Bank\",\n      \"sort_code\": \"559\"\n    },\n    {\n      \"name\": \"Globus Bank\",\n      \"sort_code\": \"103\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd7b0142-0e39-4e16-a832-bc259dab5027",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "protocol": "{{baseUrl}}/https",
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "cscs-banks",
+                    "investbamboo",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b85b12d-fc35-45ab-abcc-55851278f253",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "{{baseUrl}}/https",
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "cscs-banks",
+                    "investbamboo",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0741be09-feb1-4200-bd0c-debc449edfe1",
+              "name": "Incomplete Parameters",
+              "originalRequest": {
+                "url": {
+                  "protocol": "{{baseUrl}}/https",
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "cscs-banks",
+                    "investbamboo",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Citizenship can't be blank,\\nCountry code can't be blank\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ee66a998-d1ce-4c6d-978e-385722d682d1",
+    "name": "Bamboo Account Management Https: API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

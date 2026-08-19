@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management NG Stock Portfolio API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NG Stock Portfolio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch User Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/portfolio/breakdown",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint returns the information of a user's equity value, cash available for investing, and the user's stock position in the  Nigerian Market.\n"
+        },
+        {
+          "info": {
+            "name": "Fetch User Cash Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/user_cash_balance/:currency",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint returns data about the user's cash balance. \n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

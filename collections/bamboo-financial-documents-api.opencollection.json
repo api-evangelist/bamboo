@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Financial Documents API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Financial Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch List of All Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/document_list",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_type",
+                "value": "",
+                "type": "query",
+                "description": "Used to state the type of document you want to download; \n- ```confirms``` for Trade Confirmations\n- ```statements``` for Account Statement\n- ```taxforms``` for Tax Documents\n"
+              }
+            ]
+          },
+          "docs": "Document retrieval begins with obtaining available document lists filtered by document type for efficient access to specific document categories.\n\n**Document Type Parameters:**\n- confirms: Trade confirmation documents \n- statements: Monthly account statements \n- taxforms: Annual tax reporting documents\n\nDocument metadata includes unique file keys for document retrieval, generation dates showing when documents were created, coverage periods indicating date ranges covered by each document, and fil"
+        },
+        {
+          "info": {
+            "name": "Fetch a Single Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/document",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "file_key",
+                "value": "2024081901",
+                "type": "query",
+                "description": "File key gotten from the document list"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to access individual document download URLs using unique file key identifiers gotten from the `document_list` endpoint.\n\nSecurity features include expiring URLs where download links expire for security, IP restrictions limiting access to authorized requests, and user verification ensuring documents are only accessible by account owners.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

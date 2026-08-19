@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Featured Themes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Featured Themes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch List of Themes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/themes",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This is the endpoint to fetch the list of all Themed categories within our system."
+        },
+        {
+          "info": {
+            "name": "View Theme Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/themed_stock/:theme_id",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "featured",
+                "value": "",
+                "type": "query",
+                "description": "Featured Themes Flag"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch an existing theme by its unique theme id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

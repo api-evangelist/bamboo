@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create New User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/one_step_registration",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This single endpoint helps you create brokerage accounts for your users. The required data below are used to determine user trading eligibility and are **required by US regulations**:\n- **basic_info:** Personal details, contact information, residence\n- **verified_identity_info:** Government ID verification data\n- **affiliation_info:** Professional associations, director roles\n- **brokerage_account_info:** Investment profile required to confirm US trading eligibility\n\nA [dictionary endpoint](http"
+        },
+        {
+          "info": {
+            "name": "Dictionary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/dictionary"
+          },
+          "docs": "Returns acceptable values for account creation fields, ensuring data validation and compliance with brokerage requirements.\n\n**Categories:**\n- Employment Information – Status, type, industry, position.\n- Investment Profile – Experience, risk tolerance, goals.\n- Financial Information – Assets, source of wealth, marital status.\n\n**Usage:** \n- Values are case-sensitive.\n- Validate user inputs against dictionary before account creation.\n- Update dictionary cache periodically.\n"
+        },
+        {
+          "info": {
+            "name": "View User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/profile",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve comprehensive user profile information including account restrictions statuses.\n"
+        },
+        {
+          "info": {
+            "name": "View User Investment Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/investment_profile",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Access detailed investment profile information and brokerage account details.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

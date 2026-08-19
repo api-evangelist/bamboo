@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Authentication API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/oauth/token",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": ""
+              },
+              {
+                "name": "accept-language",
+                "value": ""
+              },
+              {
+                "name": "app-key",
+                "value": "1755d3dd-e6b9-4df1-9537-eb9017da70g9"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint generates your access token, referred to as your `x-client-token` within Bamboo’s system. \nThe credentials needed to generate it will be provided by the Bamboo Team during account setup. \n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

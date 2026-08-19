@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management US Securities API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "US Securities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch List of All Stocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stocks",
+            "headers": [
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested results. (Default = 20)"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query",
+                "description": "Next token for pagination"
+              }
+            ]
+          },
+          "docs": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo for building stock catalogs and search functionality.\n\n**Stock catalog features include:**\n- **Basic information:** with symbol, company name, and logo imagery\n- **Pagination support:** for efficient loading of large stock universes\n- **Search integration:** providing foundation data for search functionality\n- **High-quality** company logos for UI integration\n\nIntegration considerations include "
+        },
+        {
+          "info": {
+            "name": "Fetch Stock Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/stock/:symbol/details",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Stock Symbol"
+              }
+            ]
+          },
+          "docs": "This endpoint returns comprehensive details of a specific stock, including its pricing information, designed to provide users with in-depth insight into the stock.\n\n**Comprehensive stock information includes:**\n- **Real-time pricing:** with current price, daily change, and percentage movement\n- **Market data:** showing volume, market cap, P/E ratio, and 52-week high/low\n- **Company information:** including business description, CEO, and sector classification\n- **Investment story:** with detailed"
+        },
+        {
+          "info": {
+            "name": "Search Stocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stock/search",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query phrase to match stock name or symbol"
+              },
+              {
+                "name": "theme_id",
+                "value": "",
+                "type": "query",
+                "description": "Theme id to filter by. This takes only one value"
+              },
+              {
+                "name": "sorting",
+                "value": "alphabetical:asc",
+                "type": "query",
+                "description": "Used to sort the search either by ascending order, descending order, etc. The acceptable values are stated in the description above.\n"
+              },
+              {
+                "name": "filters",
+                "value": "price;a:10, price;b:50",
+                "type": "query",
+                "description": "Used to filter the search by providing certain string values separated by a comma. The expected values to be passed for the filters param are stated in the description above.\n"
+              }
+            ]
+          },
+          "docs": "This endpoint searches for a stock by a given query phrase or set of phrases, supporting advanced search capabilities with multiple filtering and sorting options.\n\nThe search functionality supports complex queries like filtering stocks between specific price ranges, performance thresholds, or market cap sizes, with predefined filters for top gainers, top losers, and user-owned stocks.\n\n##### Advanced search capabilities include:\n\n**Query Options:**\n- **Text Search:** Query by company names, stoc"
+        },
+        {
+          "info": {
+            "name": "Fetch User Stock Ownership",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/my_stocks",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint is used to get the list of stocks a user owns, providing a complete view of their current investment positions.\n\n##### User portfolio stocks include:\n  - **Owned positions:** showing all stocks currently held by the user\n  - **Position details:** with share quantities, current values, and performance metrics\n  - **Equity breakdown:** showing individual stock contributions to total portfolio\n  - **Multi-currency support:** displaying local currency values with exchange rates\n\nThis e"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

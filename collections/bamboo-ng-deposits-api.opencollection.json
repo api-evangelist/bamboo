@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management NG Deposits API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NG Deposits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/deposit",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint is used to send the details needed to create a deposit request for your users. After verification is completed, \nthe user's position will be credited with the value requested. To get statuses about your deposit, head to the [NG Stocks Events](#tag/NG-Stock-Events) section.\n"
+        },
+        {
+          "info": {
+            "name": "Fetch Deposits by Reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/deposit/:reference",
+            "headers": [
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This is used to fetch a deposit by its specific transaction reference number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

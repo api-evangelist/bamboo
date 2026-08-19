@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Portfolio Reporting API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Portfolio Reporting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch User Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/portfolio",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint returns summarized information about a user's total portfolio value, gains and losses, cash positions, and pending deposits and withdrawals with regards to the US market.\n##### The portfolio overview includes:\n  - **Current valuation:** with real-time portfolio value and daily changes\n  - **Comprehensive cash positions:** breaking down all cash types and availability\n  - **Currency conversion:** showing values in both USD and the user's local currency\n  - **Deposit and withdrawal s"
+        },
+        {
+          "info": {
+            "name": "Fetch User Portfolio Breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/portfolio/breakdown",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the user's good faith violation status, account restrictions, money available for investment or withdrawal, and overall investment performance metrics.\n\n##### Advanced portfolio analytics include:\n- **Good faith violations:** showing trading rule violation count and impact\n- **Available to invest:** Exact buying power for new trades\n- **Withdrawable cash:** showing funds eligible for withdrawal\n- **Total return analysis:** with comprehensive performance m"
+        },
+        {
+          "info": {
+            "name": "Fetch User Ownership Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/stock/:stockSymbol/ownership",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint provides detailed ownership information about a specific stock that a user owns, including insights into portfolio performance since acquiring the stock.\n##### Individual stock analysis covers:\n  - Position size showing shares owned and current market value\n  - Performance tracking with total return and daily return for the holding\n  - Cost basis indicating average purchase price and total invested amount\n  - Portfolio diversity percentage that this holding represents\n  - Outstandi"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1302 @@
+{
+  "item": [
+    {
+      "id": "02e3e308-eb08-4fd6-a1dc-47b545b3e322",
+      "name": "US Securities",
+      "description": {
+        "content": "The section provides comprehensive information about available US stocks, including real-time pricing, company details, and market data. \n\nStock themes also help users discover investment opportunities based on trends, sectors, and investment strategies. See the [Featured Themes section](#tag/Featured-Themes) for detailed information about theme-based stock discovery and categorization.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e122cd23-ea6e-4780-96db-acf471b314ff",
+          "name": "Fetch List of All Stocks",
+          "request": {
+            "name": "Fetch List of All Stocks",
+            "description": {
+              "content": "This endpoint fetches the list of stocks with basic information about them like their symbol and logo for building stock catalogs and search functionality.\n\n**Stock catalog features include:**\n- **Basic information:** with symbol, company name, and logo imagery\n- **Pagination support:** for efficient loading of large stock universes\n- **Search integration:** providing foundation data for search functionality\n- **High-quality** company logos for UI integration\n\nIntegration considerations include caching stock lists to reduce API calls, updating periodically for new stock additions, and using pagination for optimal performance.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "stocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Number of requested results. (Default = 20)"
+                },
+                {
+                  "disabled": false,
+                  "key": "next_token",
+                  "value": "<integer>",
+                  "description": "Next token for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "715b2c1b-ea2c-4e02-bf17-94964977bd43",
+              "name": "Stock list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_token\": 10,\n  \"stocks\": [\n    {\n      \"name\": \"Apple Inc\",\n      \"symbol\": \"AAPL\",\n      \"logo\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/stock-avatars%2Fwhite-logos%2FApple_APPL.png?alt=media&token=5a7398a8-bd35-466b-803c-04b6cbceff97\"\n    },\n    {\n      \"name\": \"Apple Inc\",\n      \"symbol\": \"AAPL\",\n      \"logo\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/stock-avatars%2Fwhite-logos%2FApple_APPL.png?alt=media&token=5a7398a8-bd35-466b-803c-04b6cbceff97\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72014e9a-eb45-4fc1-bbc0-3ca4c782a73a",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "next_token",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09d74e8e-fd19-4ae6-a246-70181065e64e",
+          "name": "Fetch Stock Details",
+          "request": {
+            "name": "Fetch Stock Details",
+            "description": {
+              "content": "This endpoint returns comprehensive details of a specific stock, including its pricing information, designed to provide users with in-depth insight into the stock.\n\n**Comprehensive stock information includes:**\n- **Real-time pricing:** with current price, daily change, and percentage movement\n- **Market data:** showing volume, market cap, P/E ratio, and 52-week high/low\n- **Company information:** including business description, CEO, and sector classification\n- **Investment story:** with detailed analysis and investment thesis\n- **Dividend information:** showing yield and payment history\n- **Earnings data:** with historical earnings and upcoming dates\n\n**Enhanced features:** \n- Support multi-currency pricing requests in local currency\n- ich content with company stories and investment analysis\n- Visual assets including company logos and brand colors for UI theming\n- Market context with industry comparisons and sector performance\n- Indicates that extended hours trading is active for that particular stock. \n\n**Note:** We currently only support LIMIT orders and whole unit trading during extended hours.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "stock",
+                ":symbol",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Stock Symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "NGN - to order in Naira",
+                "key": "currency",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79e0c3f4-1a80-42cf-b1fc-7b04b2b36ccc",
+              "name": "Stock pricing details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "stock",
+                    ":symbol",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Stock Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"high\": \"string\",\n  \"low\": \"string\",\n  \"name\": \"Apple, Inc.\",\n  \"open\": \"string\",\n  \"symbol\": \"AAPL\",\n  \"logo\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\",\n  \"currency_symbol\": \"$\",\n  \"price\": 257.85,\n  \"avatar\": \"string\",\n  \"story\": \"When we talk about “the value of branding” and “brand investing”, you need look no further than Apple to understand how important and powerful a well-branded company can be... and how clearly that can be reflected in its share price.\\r\\n\\r\\nIn fact, in 2014, Interbrand determined Apple to be the world's most valuable brand and Forbes named Apple the most admired company in the world for five consecutive years.\\r\\n\\r\\nThat reputation carries over into each one of its products and services, including the iPhone, iPad, iPod, Mac computer, iTunes, iCloud and the Safari web browser.\\r\\n\\r\\nApple was founded by Steve Jobs, Steve Wozniak and Ronald Wayne on April Fools' Day of 1976. Their first product was the Apple 1 Personal Computer Kit and each one was painstakingly hand-built by Wozniak.\\r\\n\\r\\nBy the end of the 1970s, Apple had earned enough profits to bring on a full-time staff of computer designers and a legitimate production line.\\r\\n\\r\\nIn 1980, Apple went public and generated more capital than any IPO since Ford Motor Company did in 1956.\\r\\n\\r\\nIn January 1984, Apple grabbed the world's attention with the introduction of the Macintosh, changing personal computing forever.\\r\\n\\r\\nIn 1985, Steve Jobs was ousted, and went on to found NeXT, and also buy Pixar, and eventually returned as CEO in July 1997.\\r\\n\\r\\nIn August 1998, Jobs rejuvenated the stagnant Apple with the introduction of the iMac, stunning the tech industry.\\r\\n\\r\\nBy the end of 2001, a staple of Apple emerged, the iPod and iTunes, which later evolved into Apple Music. Apple also created the OS X software the same year, which was later used to power the iPhone, iPad, and Apple Watch.\\r\\n\\r\\nIn January 2007, Apple unveiled its first iPhone, and we all know how that story goes. Since then, Apple has sold more than 2 billion units. \\r\\n\\r\\nIn the following 3 years, the iPhone was improved, while the iPad and Apple TV were developed. \\r\\n\\r\\nIn 2011, Jobs, who had been diagnosed with pancreatic cancer, resigned as CEO and became chairman of the board. Tim Cook was named the new CEO in August of that year. Six weeks later, Jobs succumbed to his illness, and his death provoked widespread mourning as well as statements from Bill Gates, George Lucas and President Barack Obama.\\r\\n\\r\\nUnder Tim Cook’s leadership, the company has continued its astounding growth. In 2015, Apple released the Apple Watch, the first entirely new product in the post-Jobs era.\\r\\n\\r\\nIn 2016, Apple released the AirPods — a new wireless earphone. \\r\\n\\r\\nIn 2018, Apple became the first US company to be valued above $1 trillion.\\r\\n\\r\\nMarch 2019 - After more than four decades making money primarily by selling gadgets, Apple said it intended to expand efforts in monthly subscriptions. The company has expanded services in news, streaming, music, video-games and more. \\r\\n\\r\\nAs of 2020, the company’s wearables segment, including the Apple Watch and AirPods, had overtaken the Mac in revenue generation. The same year the company announced the Apple HomePod. \\r\\n\\r\\n_MyWallSt operates a full disclosure policy. MyWallSt staff hold long positions in this stock._\",\n  \"background_color\": \"ff9201\",\n  \"extended_hours_status\": \"active\",\n  \"percent_change\": 1.4200000000000002,\n  \"price_change\": 2.8,\n  \"avg_volume\": 43464062,\n  \"dividend_yield\": 43464062,\n  \"latest_update\": 43464062,\n  \"latest_volume\": 43464062,\n  \"market_cap\": 2081325483000,\n  \"pe_ratio\": 2081325483000,\n  \"wk_52_high\": 2081325483000,\n  \"wk_52_low\": 2081325483000,\n  \"short_description\": \"Apple is one of the world's largest companies. Its most well-known products are the iPhone, iPod and MAC computer. Apple is currently the world's most valuable brand.\",\n  \"about\": {\n    \"sector\": \"Manufacturing\",\n    \"description\": \"Apple Inc. is an American multinational technology company headquartered in Cupertino, California. Apple is the worlds largest technology company by revenue, with US$394.3 billion in 2022 revenue. As of March 2023, Apple is the worlds biggest company by market capitalization.\",\n    \"ceo\": \"Timothy Cook\"\n  },\n  \"opinion\": {\n    \"points\": [\n      \"Massive cash reserves\",\n      \"Proven pricing power\",\n      \"Strong customer loyalty\"\n    ],\n    \"text\": \"There’s a scene in the 1994 film 'Forrest Gump' where the protagonist casually announces that due to an investment in “some kind of fruit company”, he wouldn’t have to worry about money any more. How many people watched that scene at the time of its release and thought they’d missed the boat on an investment in Apple?\\r\\n\\r\\nThe stock is currently up over 15,000% since.\\r\\n\\r\\nNow worth roughly $2 trillion and boasting 1.65 billion active devices, I still believe there are plenty of reasons to be an Apple investor.\\r\\n\\r\\nThe world’s largest public company has been accused of failing to be truly innovative in a post-Jobs era. While the annual keynote from Cupertino may not attract the same fervour as it did during the release of the first iPod or iPhone, behind the scenes Tim Cook is slowly building a robust and highly-profitable services business. The App Store, Apple Pay, and Apple Music are all becoming an integral part of this business story. Between 2016 and 2020, the company managed to double its services revenue and quarter after quarter this segment continues to grow. Thanks to its consistent new offerings, such as Apple Fitness+, Apple now has over 620 million paid subscriptions. This considerable consumer base now allows the brand to turn towards cross-selling and up-selling in the the form of Apple One, a bundling service which will combine popular offerings and encourage consumers to pay one, flat fee. \\r\\n\\r\\nNotable innovation also comes in the form of wearables, such as as the Apple Watch and AirPods, which continue to lure new buyers with their tiered, accessible pricing. As of 2020, the segment now generates more revenue than Mac computers and this growth doesn't seem to be slowing down, analysts expect the wearable market to expand between 15-25% annually. The Apple Watch dominates its competition, controlling 36% market share, and with the release of Apple Fitness+, it becomes a viable option within the connected fitness space. \\r\\n\\r\\nImportantly, while iPhone sales slowed in 2019 and became a concern for investors, the release of the iPhone 12 and its 5G capability brought this segment record-setting sales figures. The first quarter of 2021 saw 17% revenue growth year-over-year. \\r\\n\\r\\nThis combination of hardware, software, and services creates a sticky ecosystem that leads to lifelong customers. Combined with its powerful brand (the most valuable in the world), Apple are able to maintain high margins, which generates huge amounts of cash for research and development, stock buybacks, and dividends. Their balance sheet was so impressive that Warren Buffett, who typically avoids tech companies, loaded up on Apple stock over the last few years, becoming one of their largest shareholders.\\r\\n\\r\\nThat being said, investors and Apple must keep their eyes on the horizon as the company faces scrutiny for its monopoly of the App Store. It is unclear if the current administration will take action against the company but Apple did acknowledge this as a risk to its financial condition in its most recent annual report. \\r\\n\\r\\nDespite this, Apple's dedication to innovation has granted it years of growth and capital. Combined with the company's talent, experience, and brand, it should continue to overcome obstacles and succeed. \\r\\n\\r\\nApple is the king of consumer hardware and its stock would be a great bedrock for any portfolio.\",\n    \"update_date\": \"2023-09-25T06:54:25\"\n  },\n  \"data_source\": \"IEX Trading Group, DriveWealth\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b2da2a7-5344-42be-ba29-f3824b2d3dc2",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "stock",
+                    ":symbol",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Stock Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd2b3cc0-42ec-455d-9d1c-4c171b0c0af8",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "stock",
+                    ":symbol",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Stock Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb1ddaf7-9e5c-4f3e-9eb8-d572bd8fc8f0",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "stock",
+                    ":symbol",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Stock Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e3c385f-9f6a-4a29-89a5-abab185a99b8",
+          "name": "Search Stocks",
+          "request": {
+            "name": "Search Stocks",
+            "description": {
+              "content": "This endpoint searches for a stock by a given query phrase or set of phrases, supporting advanced search capabilities with multiple filtering and sorting options.\n\nThe search functionality supports complex queries like filtering stocks between specific price ranges, performance thresholds, or market cap sizes, with predefined filters for top gainers, top losers, and user-owned stocks.\n\n##### Advanced search capabilities include:\n\n**Query Options:**\n- **Text Search:** Query by company names, stock symbols, ticker matching\n- **Theme Filtering:** Filter by investment themes and categories\n- **Multi-Parameter:** Combine text search with theme filters\n\n**Sorting Options:**\n- **Alphabetical:** `alphabetical:asc` or `alphabetical:desc`\n- **Price-Based:** `price:asc`, `percent_change:asc`\n- **Fundamentals:** `market_cap:asc`, `pe_ratio:asc`, `eps:asc`\n- **Trading Metrics:** `volume:asc`, `div_yield:asc`\n\n**Advanced Filtering:**\n- **Price Ranges:** `price;a:10,price;b:50` (between $10-$50)\n- **Performance:** `percent_change;a:5` (gaining above 5%)\n- **Market Cap:** `market_cap;b:1000000000` (under $1B market cap)\n- **Fundamentals:** `pe_ratio;a:15` (P/E ratio above 15)\n- **Predefined Filters:** `top_gainers`, `top_losers`, `my_stocks`\n\n**Example Usage:**\n\n    GET /api/stock/search?query=apple&sorting=market_cap:desc&filters=price;a:100,my_stocks\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "stock",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Query phrase to match stock name or symbol"
+                },
+                {
+                  "disabled": false,
+                  "key": "theme_id",
+                  "value": "<string>",
+                  "description": "Theme id to filter by. This takes only one value"
+                },
+                {
+                  "disabled": false,
+                  "key": "sorting",
+                  "value": "<string>",
+                  "description": "Used to sort the search either by ascending order, descending order, etc. The acceptable values are stated in the description above.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Used to filter the search by providing certain string values separated by a comma. The expected values to be passed for the filters param are stated in the description above.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d66294bb-f24d-47e3-a6de-d159fdfb0337",
+              "name": "Stock list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "stock",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "theme_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sorting",
+                      "value": "alphabetical:asc"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "price;a:10, price;b:50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currency_symbol\": \"$\",\n  \"result\": [\n    {\n      \"value_change\": 3721.5182042839156,\n      \"user_equity\": 2969.3316818451176,\n      \"total_return\": 657.4980638610406,\n      \"symbol\": \"MDY\",\n      \"quantity\": 8324.916202305536,\n      \"name\": \"S&P MidCap 400 ETF SPDR\",\n      \"logo\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\",\n      \"favourite\": \"string\",\n      \"background_color\": \"FFFFFF\",\n      \"avatar\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\"\n    },\n    {\n      \"value_change\": 8964.185218579101,\n      \"user_equity\": 2600.1958335830677,\n      \"total_return\": 5330.305220950986,\n      \"symbol\": \"MDY\",\n      \"quantity\": 9545.931897999037,\n      \"name\": \"S&P MidCap 400 ETF SPDR\",\n      \"logo\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\",\n      \"favourite\": \"string\",\n      \"background_color\": \"FFFFFF\",\n      \"avatar\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4920a7c8-16ff-441c-a6dc-4a8e392079fe",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "stock",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "theme_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sorting",
+                      "value": "alphabetical:asc"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "price;a:10, price;b:50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "573173c5-8143-4be5-9718-9b2aea76d4da",
+          "name": "Fetch User Stock Ownership",
+          "request": {
+            "name": "Fetch User Stock Ownership",
+            "description": {
+              "content": "This endpoint is used to get the list of stocks a user owns, providing a complete view of their current investment positions.\n\n##### User portfolio stocks include:\n  - **Owned positions:** showing all stocks currently held by the user\n  - **Position details:** with share quantities, current values, and performance metrics\n  - **Equity breakdown:** showing individual stock contributions to total portfolio\n  - **Multi-currency support:** displaying local currency values with exchange rates\n\nThis endpoint supports portfolio management by tracking all user investments in one view, calculating portfolio diversity and concentration, monitoring individual position performance, and supporting portfolio rebalancing decisions.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "my_stocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "NGN - to order in Naira",
+                "key": "currency",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "538f2ec7-3749-45fc-a90d-a145a33684e6",
+              "name": "Stock pricing details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "my_stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currency_symbol\": \"$\",\n  \"equity_value\": 2267.91,\n  \"stocks\": {\n    \"name\": \"Apple, Inc.\",\n    \"symbol\": \"AAPL\",\n    \"logo\": \"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mdy.png\",\n    \"quantity\": 3.769942,\n    \"price\": 257.85,\n    \"avatar\": \"string\",\n    \"total_return\": 226.94,\n    \"total_percent_change\": 34.45,\n    \"background_color\": \"ff9201\",\n    \"value_change\": 16.51,\n    \"cost_basis\": \"string\",\n    \"market_price\": \"string\",\n    \"percent_change\": 34.45,\n    \"user_equity\": \"string\",\n    \"market_cap\": 2081325483000,\n    \"pe_ratio\": 2081325483000,\n    \"div_yield\": 1615,\n    \"eps\": 5277,\n    \"volume\": 208132548,\n    \"favourite\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81f7c4d8-f552-496e-a3fc-30b0d8a60109",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "my_stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2a95d01-6f98-457f-a2fd-f8dc029dccd0",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "my_stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ce57c34-c324-42c2-a04a-1dff67ddff69",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "my_stocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "NGN - to order in Naira",
+                    "key": "currency",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Message why request didn't succeed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ed155e3-f8d7-4d6c-8f91-3a15a6d1c8b8",
+    "name": "Bamboo Account Management US Securities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

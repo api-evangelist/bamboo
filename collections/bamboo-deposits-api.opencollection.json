@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Deposits API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deposits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/bamboo/webhook",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To make a deposit, you send a notification request with the necessary details to credit the user's brokerage account. Upon receiving the request, a record is created in our system and verification checks are performed to confirm the deposit source.\n\nVerification is carried out using an endpoint you provide to our integration team during account setup. Once the deposit is verified, the specified amount is credited to the user's brokerage account, and deposit status events are sent via Google Pub/"
+        },
+        {
+          "info": {
+            "name": "Fetch All Deposits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit",
+            "headers": [
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested results default=20"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query",
+                "description": "Next token for pagination"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Unix datetime stamp"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Unix datetime stamp"
+              }
+            ]
+          },
+          "docs": "Paginated list of all user deposits with date range filtering and status information\n"
+        },
+        {
+          "info": {
+            "name": "Fetch User-Specific Deposits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit/:id",
+            "headers": [
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested results default=20"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query",
+                "description": "Next token for pagination"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Unix datetime stamp"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Unix datetime stamp"
+              }
+            ]
+          },
+          "docs": "Individual user deposits for performance tracking"
+        },
+        {
+          "info": {
+            "name": "Deposit Status Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/tenant/deposit/status/:txref",
+            "headers": [
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Real-time status updates for specific deposit transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

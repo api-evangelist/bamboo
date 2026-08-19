@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Lsx API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lsx",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "NGX Dictionary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/lsx/ng/dictionary"
+          },
+          "docs": "This endpoint provides the acceptable data for fetching the format for the states and LGAs required during account creation. This info is needed to enable users trade in the NG market.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "4183ad23-23b7-41ed-b570-a2930fb9b11d",
+      "name": "Featured Themes",
+      "description": {
+        "content": "Stocks are grouped into various categories which help users explore and filter stocks based on common themes, sectors, or  other criteria. The endpoints in this section allow you to retrieve a list of categories that group different stocks together  and also view details about these categories.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "123d1a40-ed0b-4b96-8b0a-690fcf9f882b",
+          "name": "Fetch List of Themes",
+          "request": {
+            "name": "Fetch List of Themes",
+            "description": {
+              "content": "This is the endpoint to fetch the list of all Themed categories within our system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "themes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73b6efe8-0ff3-4f95-ba9f-7b45525cb421",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "themes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"themes\": [\n    {\n      \"name\": \"Most Popularr\",\n      \"id\": 45,\n      \"hex_color\": \"D5F59A\",\n      \"description\": \"The most-owned stocks in the Bamboo community.\",\n      \"color\": \"Blue\",\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\"\n    },\n    {\n      \"name\": \"Most Popularr\",\n      \"id\": 45,\n      \"hex_color\": \"D5F59A\",\n      \"description\": \"The most-owned stocks in the Bamboo community.\",\n      \"color\": \"Blue\",\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\"\n    }\n  ],\n  \"currency_symbol\": \"$\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6164862d-de92-4954-b648-976c757f74bd",
+              "name": "Token has expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "themes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12fdfb98-a205-43df-92ea-97c43a3b96fc",
+          "name": "View Theme Details",
+          "request": {
+            "name": "View Theme Details",
+            "description": {
+              "content": "This endpoint is used to fetch an existing theme by its unique theme id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                "themed_stock",
+                ":theme_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "featured",
+                  "value": "<boolean>",
+                  "description": "Featured Themes Flag"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e692470-0286-4831-8d4a-02576712ce0d",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "themed_stock",
+                    ":theme_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "featured",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"themes\": [\n    {\n      \"name\": \"Most Popularr\",\n      \"id\": 45,\n      \"hex_color\": \"D5F59A\",\n      \"description\": \"The most-owned stocks in the Bamboo community.\",\n      \"color\": \"Blue\",\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\"\n    },\n    {\n      \"name\": \"Most Popularr\",\n      \"id\": 45,\n      \"hex_color\": \"D5F59A\",\n      \"description\": \"The most-owned stocks in the Bamboo community.\",\n      \"color\": \"Blue\",\n      \"avatar\": \"https://firebasestorage.googleapis.com/v0/b/bamboo-16d59.appspot.com/o/staging%2Fcategories%2FMost%20Popular.png1605885112566?alt=media&token=7300dc44-f067-4aec-a3a6-6e0498de775d\"\n    }\n  ],\n  \"currency_symbol\": \"$\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e3ef614-881b-4693-90fe-dbfe02dd0c58",
+              "name": "Token has expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    "themed_stock",
+                    ":theme_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "featured",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) If standard user -> 'standard’, if manager -> 'manager’.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a6f82487-1abb-4d56-a93f-cf9ecbaa6e93",
+    "name": "Bamboo Account Management Featured Themes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

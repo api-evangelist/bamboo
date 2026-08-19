@@ -1,0 +1,927 @@
+{
+  "item": [
+    {
+      "id": "948ad8bc-a351-41e5-9401-454e42ba6018",
+      "name": "Account Management",
+      "description": {
+        "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de123caa-7149-4971-b12b-7ef6098a85d9",
+          "name": "Create New User",
+          "request": {
+            "name": "Create New User",
+            "description": {
+              "content": "This single endpoint helps you create brokerage accounts for your users. The required data below are used to determine user trading eligibility and are **required by US regulations**:\n- **basic_info:** Personal details, contact information, residence\n- **verified_identity_info:** Government ID verification data\n- **affiliation_info:** Professional associations, director roles\n- **brokerage_account_info:** Investment profile required to confirm US trading eligibility\n\nA [dictionary endpoint](https://docs.investbamboo.com/#tag/Dictionaries) is provided below to give insight into all the questions and acceptable \nvalues for the fields within the payload.\n\nAdd `\"extended_hours_opt_in\"`: `\"REQUESTED\"` field to the request schema under brokerage_account_info to enable your users trade during extended hours.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "one_step_registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The tenant's username",
+                "key": "x-request-source",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API Consumer Authorisation Token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basic_info\": {\n    \"citizenship\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"date_of_birth\": \"<string>\",\n    \"email\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"province\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"residence_country_code\": \"<string>\",\n    \"referral_code\": \"<string>\"\n  },\n  \"verified_identity_info\": {\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"date_of_birth\": \"<string>\",\n    \"document_type\": \"<string>\",\n    \"email\": \"<string>\",\n    \"expiration_date\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"image\": \"<string>\",\n    \"front_id_image\": \"<string>\",\n    \"back_id_image\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"residence_country\": \"<string>\",\n    \"state\": \"<string>\"\n  },\n  \"affiliation_info\": {\n    \"director_of\": \"<string>\",\n    \"broker\": \"<boolean>\"\n  },\n  \"brokerage_account_info\": {\n    \"company\": \"<string>\",\n    \"employment_type\": \"<string>\",\n    \"experience\": \"<string>\",\n    \"goal\": \"<string>\",\n    \"liquid\": \"<integer>\",\n    \"marital_status\": \"<string>\",\n    \"net_worth\": \"<integer>\",\n    \"position\": \"<string>\",\n    \"risk_tolerance\": \"<string>\",\n    \"yearly_income\": \"<integer>\",\n    \"employment_status\": \"<string>\",\n    \"source_of_wealth\": \"<string>\",\n    \"extended_hours_opt_in\": \"REQUESTED\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50e12058-06b2-4a8b-bde8-481a118c1a86",
+              "name": "Account created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "one_step_registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basic_info\": {\n    \"citizenship\": \"Nigerian\",\n    \"city\": \"Lagos\",\n    \"country_code\": \"NGA\",\n    \"date_of_birth\": \"1927-02-19\",\n    \"email\": \"johndoe@gmail.com\",\n    \"first_name\": \"John\",\n    \"gender\": \"Man\",\n    \"last_name\": \"Doe\",\n    \"phone_number\": \"+2347083864023\",\n    \"province\": \"Lagos State\",\n    \"postal_code\": \"100001\",\n    \"residence_country_code\": \"NGA\",\n    \"referral_code\": \"113792\"\n  },\n  \"verified_identity_info\": {\n    \"address\": \"22 Babatunde Anjous Lekki\",\n    \"city\": \"Lekki\",\n    \"date_of_birth\": \"1927/02/19\",\n    \"document_type\": \"BVN\",\n    \"email\": \"<string>\",\n    \"expiration_date\": \"2026/10/10\",\n    \"full_name\": \"John Doe\",\n    \"gender\": \"Man\",\n    \"identifier\": \"22488743663\",\n    \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"front_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"back_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"phone_number\": \"+2347083864023\",\n    \"residence_country\": \"NGA\",\n    \"state\": \"Lagos\"\n  },\n  \"affiliation_info\": {\n    \"director_of\": \"\",\n    \"broker\": false\n  },\n  \"brokerage_account_info\": {\n    \"company\": \"Phil Technologies LTD.\",\n    \"employment_type\": \"AGRICULTURE\",\n    \"experience\": \"NONE\",\n    \"goal\": \"FREQUENT\",\n    \"liquid\": 12500,\n    \"marital_status\": \"MARRIED\",\n    \"net_worth\": 62500,\n    \"position\": \"AUDITOR\",\n    \"risk_tolerance\": \"LOW\",\n    \"yearly_income\": 12500,\n    \"employment_status\": \"SELF_EMPLOYED\",\n    \"source_of_wealth\": \"COMPANY\",\n    \"extended_hours_opt_in\": \"REQUESTED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration_time\": 1697532406,\n  \"jwt\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ3ZWIiLCJleHAiOjE2OTc1MzI0MDYsImlhdCI6MTY5NDk0MDQwNiwiaXNzIjoid2ViIiwianRpIjoiMTE5MGRjMDEtZjQxNS00NmQ3LWFjOTctYzM5M2Y2MWEzYWJjIiwibmJmIjoxNjk0OTQwNDA1LCJyZXNpZGVuY2VfY291bnRyeSI6Ik5HQSIsInN1YiI6NTc3MSwidHlwIjoiYWNjZXNzIn0.GN3THXBJPynv0BcKuWKc84UHexAD22iGtO8A7kSjR92VKxLaiXxz0bDC-CEa8pVKum3oVwjjdRdAXeJL6c4Tsw\",\n  \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ3ZWIiLCJleHAiOjE2OTczNTk2MDYsImlhdCI6MTY5NDk0MDQwNiwiaXNzIjoid2ViIiwianRpIjoiYWQ4MDA2MzMtMWU4Ny00MGQ0LWFkMTMtNzc4YjY0M2JlNWQwIiwibmJmIjoxNjk0OTQwNDA1LCJyZXNpZGVuY2VfY291bnRyeSI6Ik5HQSIsInN1YiI6NTc3MSwidHlwIjoicmVmcmVzaCJ9.a5Vn2ApDrDBnroDk-7n3neJOuZPDOJxSP29V85rej_eKx4w0JiJ112-tghkSi3xijf0RSkw_AeVq-9sS7bjr0w\",\n  \"user\": {\n    \"application_id\": 50083181,\n    \"bvn_api_fail\": false,\n    \"date_of_birth\": \"1927-02-19\",\n    \"email\": \"johndoe@gmail.com\",\n    \"first_name\": \"John\",\n    \"full_name\": \"John Doe\",\n    \"id\": 4101,\n    \"last_name\": \"Doe\",\n    \"name\": \"John\",\n    \"phone_number\": \"+2347083864023\",\n    \"registration_step\": \"Pending review\",\n    \"surname\": \"Doe\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ee14b31-e8f8-4624-aee9-131aecf49159",
+              "name": "Token has expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "one_step_registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basic_info\": {\n    \"citizenship\": \"Nigerian\",\n    \"city\": \"Lagos\",\n    \"country_code\": \"NGA\",\n    \"date_of_birth\": \"1927-02-19\",\n    \"email\": \"johndoe@gmail.com\",\n    \"first_name\": \"John\",\n    \"gender\": \"Man\",\n    \"last_name\": \"Doe\",\n    \"phone_number\": \"+2347083864023\",\n    \"province\": \"Lagos State\",\n    \"postal_code\": \"100001\",\n    \"residence_country_code\": \"NGA\",\n    \"referral_code\": \"113792\"\n  },\n  \"verified_identity_info\": {\n    \"address\": \"22 Babatunde Anjous Lekki\",\n    \"city\": \"Lekki\",\n    \"date_of_birth\": \"1927/02/19\",\n    \"document_type\": \"BVN\",\n    \"email\": \"<string>\",\n    \"expiration_date\": \"2026/10/10\",\n    \"full_name\": \"John Doe\",\n    \"gender\": \"Man\",\n    \"identifier\": \"22488743663\",\n    \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"front_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"back_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"phone_number\": \"+2347083864023\",\n    \"residence_country\": \"NGA\",\n    \"state\": \"Lagos\"\n  },\n  \"affiliation_info\": {\n    \"director_of\": \"\",\n    \"broker\": false\n  },\n  \"brokerage_account_info\": {\n    \"company\": \"Phil Technologies LTD.\",\n    \"employment_type\": \"AGRICULTURE\",\n    \"experience\": \"NONE\",\n    \"goal\": \"FREQUENT\",\n    \"liquid\": 12500,\n    \"marital_status\": \"MARRIED\",\n    \"net_worth\": 62500,\n    \"position\": \"AUDITOR\",\n    \"risk_tolerance\": \"LOW\",\n    \"yearly_income\": 12500,\n    \"employment_status\": \"SELF_EMPLOYED\",\n    \"source_of_wealth\": \"COMPANY\",\n    \"extended_hours_opt_in\": \"REQUESTED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c4f163b-96b2-4df9-a50b-0eabbb748227",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "one_step_registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The tenant's username",
+                    "key": "x-request-source",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API Consumer Authorisation Token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basic_info\": {\n    \"citizenship\": \"Nigerian\",\n    \"city\": \"Lagos\",\n    \"country_code\": \"NGA\",\n    \"date_of_birth\": \"1927-02-19\",\n    \"email\": \"johndoe@gmail.com\",\n    \"first_name\": \"John\",\n    \"gender\": \"Man\",\n    \"last_name\": \"Doe\",\n    \"phone_number\": \"+2347083864023\",\n    \"province\": \"Lagos State\",\n    \"postal_code\": \"100001\",\n    \"residence_country_code\": \"NGA\",\n    \"referral_code\": \"113792\"\n  },\n  \"verified_identity_info\": {\n    \"address\": \"22 Babatunde Anjous Lekki\",\n    \"city\": \"Lekki\",\n    \"date_of_birth\": \"1927/02/19\",\n    \"document_type\": \"BVN\",\n    \"email\": \"<string>\",\n    \"expiration_date\": \"2026/10/10\",\n    \"full_name\": \"John Doe\",\n    \"gender\": \"Man\",\n    \"identifier\": \"22488743663\",\n    \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"front_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"back_id_image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9gA...\",\n    \"phone_number\": \"+2347083864023\",\n    \"residence_country\": \"NGA\",\n    \"state\": \"Lagos\"\n  },\n  \"affiliation_info\": {\n    \"director_of\": \"\",\n    \"broker\": false\n  },\n  \"brokerage_account_info\": {\n    \"company\": \"Phil Technologies LTD.\",\n    \"employment_type\": \"AGRICULTURE\",\n    \"experience\": \"NONE\",\n    \"goal\": \"FREQUENT\",\n    \"liquid\": 12500,\n    \"marital_status\": \"MARRIED\",\n    \"net_worth\": 62500,\n    \"position\": \"AUDITOR\",\n    \"risk_tolerance\": \"LOW\",\n    \"yearly_income\": 12500,\n    \"employment_status\": \"SELF_EMPLOYED\",\n    \"source_of_wealth\": \"COMPANY\",\n    \"extended_hours_opt_in\": \"REQUESTED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2ae0aff-475f-4c0c-8ab1-1f429a5aba19",
+          "name": "Dictionary",
+          "request": {
+            "name": "Dictionary",
+            "description": {
+              "content": "Returns acceptable values for account creation fields, ensuring data validation and compliance with brokerage requirements.\n\n**Categories:**\n- Employment Information – Status, type, industry, position.\n- Investment Profile – Experience, risk tolerance, goals.\n- Financial Information – Assets, source of wealth, marital status.\n\n**Usage:** \n- Values are case-sensitive.\n- Validate user inputs against dictionary before account creation.\n- Update dictionary cache periodically.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20e12cb1-1cbf-4680-a20b-712e3a7b303d",
+              "name": "Dictionary response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assets_range\": [\n    {\n      \"12500\": \"₦0-₦9,000,000\"\n    },\n    {\n      \"62500\": \"₦9,000,001-₦36,000,001\"\n    },\n    {\n      \"175000\": \"₦36,000,001-₦90,000,000\"\n    },\n    {\n      \"250000\": \"₦90,000,001+\"\n    }\n  ],\n  \"employment_status\": {},\n  \"employment_type\": {},\n  \"experience\": [\n    {\n      \"NONE\": \"None\"\n    },\n    {\n      \"YRS_1_2\": \"1-2 years\"\n    },\n    {\n      \"YRS_3_5\": \"3-5 years\"\n    },\n    {\n      \"YRS_5_10\": \"5-10 years\"\n    },\n    {\n      \"YRS_10_\": \"10+ years\"\n    }\n  ],\n  \"goal\": {},\n  \"marital_status\": {},\n  \"position\": {},\n  \"risk_tolerance\": [\n    {\n      \"LOW\": \"Low Risk\"\n    },\n    {\n      \"MODERATE\": \"Moderate Risk\"\n    },\n    {\n      \"SPECULATION\": \"Speculative Risk\"\n    },\n    {\n      \"HIGH\": \"High Risk\"\n    }\n  ],\n  \"source_of_wealth\": [\n    {\n      \"COMPANY\": \"Company sale\",\n      \"GIFT\": \"Gift\",\n      \"INHERITANCE\": \"Inheritance\",\n      \"INVESTMENTS\": \"Sales of shares or other investments/liquidation of an investment portfolio\",\n      \"LOAN\": \"Loan\",\n      \"PROPERTY\": \"Sale of property\",\n      \"SAVINGS\": \"Savings from salary\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e821775a-0bda-44d5-b9ee-bb4060533661",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be21cfa1-7993-484a-b5f9-f3e917701600",
+          "name": "View User Profile",
+          "request": {
+            "name": "View User Profile",
+            "description": {
+              "content": "Retrieve comprehensive user profile information including account restrictions statuses.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "107329d7-edcc-496a-a430-d2e14d5bab38",
+              "name": "Profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_number\": \"84861889\",\n  \"age\": 96,\n  \"carrot_integration_status\": \"not_available\",\n  \"citizenship\": \"Nigeria\",\n  \"city\": \"Lekki\",\n  \"email\": \"johndoe@gmail.com\",\n  \"email_verified\": false,\n  \"engagement_status\": \"no_trade\",\n  \"gender\": \"Man\",\n  \"name\": \"John\",\n  \"phone_number\": \"+2347083864023\",\n  \"postal_code\": \"+234\",\n  \"province\": \"Lagos State\",\n  \"street\": \"4383 Ms. Godspower Savage Squares, Ngaski Lagos\",\n  \"surname\": \"Doe\",\n  \"next_of_kin\": \"Phil Doe\",\n  \"account_restriction\": {\n    \"restricted\": false,\n    \"reason\": \"Account is under review\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "048e8a79-ea9c-449a-b579-d72b0932559d",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d0d85e5-f16c-4f95-8257-1f79092b9289",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65bc8000-3870-4457-84ae-e1af47ce436f",
+          "name": "View User Investment Profile",
+          "request": {
+            "name": "View User Investment Profile",
+            "description": {
+              "content": "Access detailed investment profile information and brokerage account details.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "investment_profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Acceptable language; 'en' for English",
+                "key": "accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Required for user authentication",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) For user request -> 'tenant'.",
+                "key": "x-subject-type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) API consumer token",
+                "key": "x-client-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc336270-a726-4642-93ee-2137fe944002",
+              "name": "User Investment Profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "investment_profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"position\": \"ARTIST\",\n  \"marital_status\": \"SINGLE\",\n  \"employment_status\": \"UNEMPLOYED\",\n  \"company\": \"BAMBOO\",\n  \"experience\": \"NONE\",\n  \"yearly_income\": 12500,\n  \"liquid\": 12500,\n  \"net_worth\": 12500,\n  \"risk_tolerance\": \"HIGH\",\n  \"dependents\": 0,\n  \"source_of_wealth\": \"INHERITANCE\",\n  \"employment_type\": \"MANAGEMENT\",\n  \"goal\": \"ACTIVE_DAILY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a89bfadd-4c68-4d0e-8554-171268dce8fa",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "investment_profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75250237-218e-4900-80d2-afc4e6fb3ee1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "investment_profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable content type",
+                    "key": "content-type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Acceptable language; 'en' for English",
+                    "key": "accept-language",
+                    "value": "en"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Required for user authentication",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) For user request -> 'tenant'.",
+                    "key": "x-subject-type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API consumer token",
+                    "key": "x-client-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "65fa3e91-983c-4d4e-a733-44d923b45dcd",
+    "name": "Bamboo Account Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}

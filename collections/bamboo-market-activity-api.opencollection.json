@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management Market Activity API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Activity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "US Market Activity Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/market/open_date",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "market",
+                "value": "",
+                "type": "query",
+                "description": "Market Type; US"
+              }
+            ]
+          },
+          "docs": "This endpoint indicates whether the US market is open/close. Orders placed when market is closed are queued for the next trading session.\n\nMarket status information includes a boolean indicator for whether the market is currently active, Unix timestamp of the current market date, operating trading hours, and holiday schedule showing market closures on US federal holidays.\n"
+        },
+        {
+          "info": {
+            "name": "Enable or Disable Extended Hours Trading",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/extended_hours/opt_in",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This enables you to give your users the option to enable or disable extended hours trading for their accounts.\n\n**NB:** This endpoint cannot be called for accounts that are pending brokerage account creation.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

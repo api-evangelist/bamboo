@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bamboo Account Management US Stock Trading API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "US Stock Trading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/calculate",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint estimates the exact order cost, fees, and trade feasibility for the specified order type before execution.  \n\nIt supports **Market**, **Limit**, and **Stop** order types and determines the precise values that should be used when placing an actual order.\n\nThe values returned guide what to send in the `/api/order` request.\n\n**Integration Flow:**\n- First, call this endpoint to calculate the order.\n- Then, use the `order_price` from the calculation response as the `total_price` when pl"
+        },
+        {
+          "info": {
+            "name": "Place Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is used to place an order using results from calculate order endpoint after confirming the user is eligible to make trades.\n\nBamboo supports trading during extended hours, to specify that you want your trade executed during extended hours, pass  `extended_hours_order`: `true` or `false` in your request payload.\n\n**Critical Requirements**\n- Use `order_price` from `calculate-order` response as your `total_price` when placing your order\n- For `LIMIT/STOP` orders, use `price_per_share` from ord"
+        },
+        {
+          "info": {
+            "name": "Fetch Order Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/:id/status",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order id"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to check the status of an order that has been placed, providing comprehensive details about order execution and current state.\n\n**Order status information includes:**\n- Order identification with unique order ID and stock details\n- Execution details showing order type, side (buy/sell), and quantity\n- Pricing information with execution price and total value\n- Fee breakdown in both USD and local currency\n- Current status and any status change reasons\n- Timestamps for order cre"
+        },
+        {
+          "info": {
+            "name": "View Pending Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/pending_orders",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This endpoint is used to check all pending orders made by users, displaying orders that are awaiting execution in the market.\n\n**Pending order management features:**\n- Active orders showing all LIMIT and STOP orders awaiting execution\n- Order specifications including trigger prices and expiration dates\n- Complete order details for user review\n\nThis endpoint supports comprehensive order management by monitoring all pending orders across user portfolios, tracking order expiration dates and renewal"
+        },
+        {
+          "info": {
+            "name": "Cancel Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://powered-by-bamboo-sandbox.investbamboo.com/api/order/:id/cancel",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              },
+              {
+                "name": "accept-language",
+                "value": "en"
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              },
+              {
+                "name": "x-subject-type",
+                "value": ""
+              },
+              {
+                "name": "x-client-token",
+                "value": ""
+              },
+              {
+                "name": "x-request-source",
+                "value": ""
+              },
+              {
+                "name": "currency",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order id"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to cancel a pending order before it executes, allowing users to modify their trading strategy.\n\n**Cancellation rules include:**\n- Pending orders can be cancelled for LIMIT and STOP orders before execution\n- You can only cancel market orders when market is closed because they usually execute too quickly to cancel during market hours\n- Executed orders cannot be cancelled once they have already filled\n- No fees are charged for order cancellation.\n\nCash impact of cancellation i"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

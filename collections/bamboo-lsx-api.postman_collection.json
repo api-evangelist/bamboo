@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "d967f05d-dfee-446a-985d-2e4c7f148fd5",
+      "name": "Lsx",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9bfb560-d4f9-4bc9-9101-7a271e27abce",
+          "name": "NGX Dictionary",
+          "request": {
+            "name": "NGX Dictionary",
+            "description": {
+              "content": "This endpoint provides the acceptable data for fetching the format for the states and LGAs required during account creation. This info is needed to enable users trade in the NG market.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "lsx",
+                "ng",
+                "dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a40cb66-eda2-4935-82d0-dbb3ce33da79",
+              "name": "Dictionary response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"states_and_lgas\": [\n    {\n      \"state\": \"Adamawa\",\n      \"lgas\": [\n        \"Demsa\",\n        \"Fufure\",\n        \"Ganye\",\n        \"Gayuk\",\n        \"Gombi\",\n        \"Grie\",\n        \"Hong\",\n        \"Jada\",\n        \"Larmurde\",\n        \"Madagali\",\n        \"Maiha\",\n        \"Mayo Belwa\",\n        \"Michika\",\n        \"Mubi North\",\n        \"Mubi South\",\n        \"Numan\",\n        \"Shelleng\",\n        \"Song\",\n        \"Toungo\",\n        \"Yola North\",\n        \"Yola South\"\n      ]\n    },\n    {\n      \"state\": \"Lagos\",\n      \"lgas\": [\n        \"Agege\",\n        \"Ajeromi-Ifelodun\",\n        \"Alimosho\",\n        \"Amuwo-Odofin\",\n        \"Badagry\",\n        \"Apapa\",\n        \"Epe\",\n        \"Eti Osa\",\n        \"Ibeju-Lekki\",\n        \"Ifako-Ijaiye\",\n        \"Ikeja\",\n        \"Ikorodu\",\n        \"Kosofe\",\n        \"Lagos Island\",\n        \"Mushin\",\n        \"Lagos Mainland\",\n        \"Ojo\",\n        \"Oshodi-Isolo\",\n        \"Shomolu\",\n        \"Surulere Lagos State\"\n      ]\n    },\n    {\n      \"state\": \"Federal Capital Territory\",\n      \"lgas\": [\n        \"Abaji\",\n        \"Bwari\",\n        \"Gwagwalada\",\n        \"Kuje\",\n        \"Kwali\",\n        \"Municipal Area Council\"\n      ]\n    },\n    {\n      \"etc\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aebc757d-ab4a-4967-9591-8015e00aa073",
+              "name": "Token have expired or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid client token supplied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67570b2b-1a6f-44ec-bf53-740942ca9f8c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Resource Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4120ff29-c50d-4c95-93df-84b9161154f8",
+              "name": "Incomplete Parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "lsx",
+                    "ng",
+                    "dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Citizenship can't be blank,\\nCountry code can't be blank\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://powered-by-bamboo-sandbox.investbamboo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d45274f2-e52c-46e1-9e88-f3eaee1cc3e6",
+    "name": "Bamboo Account Management Lsx API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n",
+      "type": "text/plain"
+    }
+  }
+}
