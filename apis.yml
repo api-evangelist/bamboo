@@ -24,6 +24,15 @@ tags:
   - Fractional Shares
   - Africa
   - Nigeria
+  - Portfolio-Management
+  - Brokerage
+  - Fintech
+tags_raw:
+  - Investments
+  - Stocks
+  - Fractional Shares
+  - Africa
+  - Nigeria
   - Portfolio Management
   - Brokerage
   - Fintech
@@ -231,6 +240,8 @@ apis:
   humanURL: https://docs.investbamboo.com/
   baseURL: https://api.investbamboo.com
   tags:
+  - HTTPS
+  tags_raw:
   - 'Https:'
   properties:
   - type: OpenAPI
