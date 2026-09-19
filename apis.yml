@@ -31,7 +31,7 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
-  - Investments
+  - Investment
   - Stocks
   - Fractional Shares
   - Africa
@@ -252,7 +252,7 @@ apis:
   humanURL: https://docs.investbamboo.com/
   baseURL: https://api.investbamboo.com
   tags:
-  - HTTPS
+  - HTTP
   tags_raw:
   - 'Https:'
   properties:
@@ -436,6 +436,8 @@ apis:
   humanURL: https://docs.investbamboo.com/
   baseURL: https://api.investbamboo.com
   tags:
+  - Tenants
+  tags_raw:
   - Tenant
   properties:
   - type: OpenAPI
