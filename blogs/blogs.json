@@ -3,9 +3,12 @@
   "feeds": [
     {
       "source": "https://ng.linkedin.com/company/investbamboo",
-      "error": "HTTPError"
+      "feed_url": "https://ng.linkedin.com/company/investbamboo",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-09-13T13:00:00Z"
+  "fetched": "2026-09-19T20:17:39Z"
 }
