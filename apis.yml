@@ -30,6 +30,9 @@ url: https://raw.githubusercontent.com/api-evangelist/bamboo/refs/heads/main/api
 created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-20
 tags:
   - Investment
   - Stocks
