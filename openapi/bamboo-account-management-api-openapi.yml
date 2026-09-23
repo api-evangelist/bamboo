@@ -1,13 +1,13 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Bamboo Account Management API
-  version: "1.0"
-  description: "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n"
+  version: ''
+  description: Account creation enables users to invest on Bamboo.
 servers:
 - url: https://powered-by-bamboo-sandbox.investbamboo.com
 tags:
 - name: Account Management
-  description: "Account creation enables users to invest on Bamboo. Ensure KYC has been completed and each user’s identity verified before creating a brokerage account.\n\n**Best Practice:** To avoid maintenance fees on inactive accounts, create and fund brokerage accounts **only when users initiate their first trade**. You may collect account details in advance but delay sending the request until they’re ready to buy.\n\n##### Prerequisites\n- **Minimum Age:** 18 years (verified via government-issued ID)\n- **Compliance:** Must meet local investment regulations\n\n##### Document Requirements\n<table>\n  <thead>\n    <tr>\n      <th>Country</th>\n      <th>Primary ID</th>\n      <th>Image Requirements</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Nigeria</th>\n      <td>BVN</td>\n      <td>Passport photo</td>\n    </tr>\n    <tr>\n      <th>Ghana</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n    <tr>\n      <th>South Africa</th>\n      <td>National ID</td>\n      <td>Front & back ID images</td>\n    </tr>\n  </tbody>\n</table>\n\n**Note:** Images must be in Base64 format. The `front_id_image` and `back_id_image` fields apply only to Ghana and South Africa.\n\n##### Phone Number Format\n- Must be in international format (e.g., +2347083864023)\n- Country code must match user’s residence\n- Used for notifications and account security\n"
+  description: Account creation enables users to invest on Bamboo.
 paths:
   /api/one_step_registration:
     post:
@@ -15,7 +15,23 @@ paths:
       - Account Management
       summary: Create New User
       operationId: Web.Api.RegisterController.registration_step
-      description: "This single endpoint helps you create brokerage accounts for your users. The required data below are used to determine user trading eligibility and are **required by US regulations**:\n- **basic_info:** Personal details, contact information, residence\n- **verified_identity_info:** Government ID verification data\n- **affiliation_info:** Professional associations, director roles\n- **brokerage_account_info:** Investment profile required to confirm US trading eligibility\n\nA [dictionary endpoint](https://docs.investbamboo.com/#tag/Dictionaries) is provided below to give insight into all the questions and acceptable \nvalues for the fields within the payload.\n\nAdd `\"extended_hours_opt_in\"`: `\"REQUESTED\"` field to the request schema under brokerage_account_info to enable your users trade during extended hours.\n"
+      description: 'This single endpoint helps you create brokerage accounts for your users. The required data below are used to determine user trading eligibility and are **required by US regulations**:
+
+        - **basic_info:** Personal details, contact information, residence
+
+        - **verified_identity_info:** Government ID verification data
+
+        - **affiliation_info:** Professional associations, director roles
+
+        - **brokerage_account_info:** Investment profile required to confirm US trading eligibility
+
+
+        A dictionary endpoint is provided below to give insight into all the questions and acceptable
+
+        values for the fields within the payload.
+
+
+        Add `"extended_hours_opt_in"`: `"REQUESTED"` field to the request schema under brokerage_account_info to enable your users trade during extended hours.'
       parameters:
       - name: content-type
         in: header
@@ -408,7 +424,25 @@ paths:
       tags:
       - Account Management
       summary: Dictionary
-      description: "Returns acceptable values for account creation fields, ensuring data validation and compliance with brokerage requirements.\n\n**Categories:**\n- Employment Information – Status, type, industry, position.\n- Investment Profile – Experience, risk tolerance, goals.\n- Financial Information – Assets, source of wealth, marital status.\n\n**Usage:** \n- Values are case-sensitive.\n- Validate user inputs against dictionary before account creation.\n- Update dictionary cache periodically.\n"
+      description: 'Returns acceptable values for account creation fields, ensuring data validation and compliance with brokerage requirements.
+
+
+        **Categories:**
+
+        - Employment Information – Status, type, industry, position.
+
+        - Investment Profile – Experience, risk tolerance, goals.
+
+        - Financial Information – Assets, source of wealth, marital status.
+
+
+        **Usage:**
+
+        - Values are case-sensitive.
+
+        - Validate user inputs against dictionary before account creation.
+
+        - Update dictionary cache periodically.'
       operationId: Web.Api.RegisterController.dictionary
       responses:
         '200':
@@ -428,9 +462,7 @@ paths:
       tags:
       - Account Management
       summary: View User Profile
-      description: 'Retrieve comprehensive user profile information including account restrictions statuses.
-
-        '
+      description: Retrieve comprehensive user profile information including account restrictions statuses.
       operationId: Web.Api.ProfileController.profile
       parameters:
       - name: content-type
@@ -489,9 +521,7 @@ paths:
       tags:
       - Account Management
       summary: View User Investment Profile
-      description: 'Access detailed investment profile information and brokerage account details.
-
-        '
+      description: Access detailed investment profile information and brokerage account details.
       operationId: Web.Api.ProfileController.investment_profile
       parameters:
       - name: content-type
@@ -547,6 +577,17 @@ paths:
                 $ref: '#/components/schemas/ResourceNotFound'
 components:
   schemas:
+    Unauthorized:
+      title: Unauthorized response
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Unauthorized/Invalid Token/Token has expired
+          example: Invalid client token supplied.
+      description: Token is invalid or have expired
     ProfileResponse:
       title: Profile response
       required:
@@ -651,17 +692,6 @@ components:
           type: string
           description: Account number
           example: '84861889'
-    Unauthorized:
-      title: Unauthorized response
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Unauthorized/Invalid Token/Token has expired
-          example: Invalid client token supplied.
-      description: Token is invalid or have expired
     InvestmentProfileResponse:
       title: Investment Profile response
       required:
@@ -680,10 +710,11 @@ components:
       type: object
       properties:
         position:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Job position or title
           example: ARTIST
-          nullable: true
         marital_status:
           type: string
           description: Marital status
@@ -704,15 +735,17 @@ components:
           - RETIRED
           - STUDENT
         company:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Company name where employed
           example: BAMBOO
-          nullable: true
         employment_type:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Industry or type of employment
           example: MANAGEMENT
-          nullable: true
         goal:
           type: string
           description: Investment goal or trading frequency
@@ -765,6 +798,17 @@ components:
           - BUSINESS
           - INHERITANCE
           - INVESTMENTS
+    ResourceNotFound:
+      title: Resource not found
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Resource not found (an incorrect url may have been used)
+          example: Resource Not Found
+      description: Error response for when the resource is not found within our data.
     DictionaryResponse:
       title: US Dictionary response
       required:
@@ -964,17 +1008,6 @@ components:
             PROPERTY: Sale of property
             SAVINGS: Savings from salary
       description: GET response with key-values
-    ResourceNotFound:
-      title: Resource not found
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Resource not found (an incorrect url may have been used)
-          example: Resource Not Found
-      description: Error response for when the resource is not found within our data.
 x-logo:
   url: bamboo-logo.png
   altText: bamboo logo
